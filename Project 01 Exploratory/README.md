@@ -1,3 +1,9 @@
 # Project 1: Exploratory Visualization
 
-This project is exploratory.
+### A. Prospectus
+
+### B. Sketches and Mockups
+
+### C. Architectural Schema
+
+### D. Final Project
