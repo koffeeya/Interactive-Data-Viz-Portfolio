@@ -31,21 +31,24 @@ Ultimately, I hope to spark curiosity by representing an artist’s work in this
 
 <br />
 
-----
+
 
 
 ## **B. SKETCHES & MOCKUPS**
+*In Progress*
 
 <br />
 
-----
+
 
 ## **C. ARCHITECTURAL SCHEMA**
+*In Progress*
 
 <br />
 
-----
+
 
 ## **D. FINAL PROJECT**
+*In Progress*
 
 <br />
