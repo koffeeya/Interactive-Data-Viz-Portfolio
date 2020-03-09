@@ -7,14 +7,14 @@
 
 My project aims to explore how the dominant color of an artist’s works might change over time -- their “color history”. I was inspired by looking at the monochromatic works from Pablo Picasso’s [Blue Period](https://en.wikipedia.org/wiki/Picasso%27s_Blue_Period). I wondered how that period would look in a data visualization -- if I put his works on a timeline, could I “point out” the Blue Period without being told when it started?
 
-#### Data Source
+### Data Source
 My data source will be the [Museum of Modern Art's Collection](https://github.com/MuseumofModernArt/collection) on GitHub, which has a wealth of metadata on ~200,000 items available in JSON and CSV formats.
 
 **Here is my [Python script](https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM), where I am working on cleaning the data.**  
 
 <br />
 
-#### Plan
+### Plan
 
 1. First, I will download the “Artworks” dataset from the [MoMA GitHub](https://github.com/MuseumofModernArt/collection) in either a CSV or JSON format -- I’m not sure which one would be better at this point. Then, I’ll import the dataset to Python.
 
