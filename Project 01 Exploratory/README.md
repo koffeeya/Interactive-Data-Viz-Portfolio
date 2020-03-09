@@ -1,4 +1,5 @@
 # **Project 1: Exploratory Visualization**
+*How does the dominant color of an artist’s works change over time?*
 
 <br />
 
