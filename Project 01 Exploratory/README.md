@@ -12,8 +12,6 @@ My data source will be the [Museum of Modern Art's Collection](https://github.co
 
 **Here is my [Python script](https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM), where I am working on cleaning the data.**  
 
-<br />
-
 ### Plan
 
 1. First, I will download the “Artworks” dataset from the [MoMA GitHub](https://github.com/MuseumofModernArt/collection) in either a CSV or JSON format -- I’m not sure which one would be better at this point. Then, I’ll import the dataset to Python.
