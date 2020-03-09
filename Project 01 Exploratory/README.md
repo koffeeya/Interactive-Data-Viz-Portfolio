@@ -51,3 +51,10 @@ Ultimately, I hope to spark curiosity by representing an artist’s work in this
 *In Progress*
 
 <br />
+
+
+## **E. SOURCES**
+[Museum of Modern Art's Collection](https://github.com/MuseumofModernArt/collection)
+
+<br />
+
