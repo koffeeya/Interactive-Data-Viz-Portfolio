@@ -36,7 +36,7 @@ Ultimately, I hope to spark curiosity by representing an artist’s work in this
 ## **B. SKETCHES & MOCKUPS**
 *In Progress*
 
-[Mockups (in Google Sheets)](https://docs.google.com/presentation/d/1ABtSauyAgViPgbfPnGgv_Xmc_xSX06YHy-kV1rszV1Q/edit?usp=sharing)
+[Mockups (in Google Slides)](https://docs.google.com/presentation/d/1ABtSauyAgViPgbfPnGgv_Xmc_xSX06YHy-kV1rszV1Q/edit?usp=sharing)
 
 <br />
 
