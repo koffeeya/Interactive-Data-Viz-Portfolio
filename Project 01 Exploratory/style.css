@@ -9,15 +9,15 @@ body {
 }
 
 #filters {
-    background-color: blue;
+    background-color: grey;
 }
 
 #chart {
-    background-color: green;
+    background-color: black;
 }
 
 #tooltip {
-    background-color: orange;
+    background-color: grey;
 }
 
 .waffle {
@@ -26,7 +26,16 @@ body {
   }
   
 .block {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     margin: 2px;
+}
+
+.img {
+    max-width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    position: sticky;
+    top: 0;
 }

@@ -5,6 +5,7 @@ import {
 
 let chart;
 
+
 // Set global state variables
 let state = {
     data: [],
@@ -12,13 +13,16 @@ let state = {
     selectedYear: null,
     selectedArtist: null,
     selectedGender: null,
+    hover: null,
 }
+
 
 // Read in data
 d3.csv("data/artworks.csv", d3.autoType).then(
     data => {
-        console.log("data", data);
-        state.data = data;
+        console.log("raw data", data);
+        state.data = data.flat();
+        console.log("state data", state.data["rgbString"]);
         init();
     }
 );
@@ -26,22 +30,13 @@ d3.csv("data/artworks.csv", d3.autoType).then(
 
 // Init
 function init() {
-
-    const waffle = d3.select('.waffle');
-
-    waffle
-        .selectAll('.block')
-        .data(state.data, d => d.ObjectID)
-        .enter()
-        .append('div')
-        .attr('class', 'block')
-        .style('background-color', d3.rgb("rgb(140, 25, 90)"));
-
+    chart = new Chart(state, setGlobalState);
 }
+
 
 // Draw
 function draw() {
-
+    chart.draw(state, setGlobalState);
 }
 
 
