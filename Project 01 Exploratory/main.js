@@ -1,5 +1,7 @@
 // Import components
-import { Chart } from "./chart.js";
+import {
+    Chart
+} from "./chart.js";
 
 let chart;
 
@@ -27,15 +29,13 @@ function init() {
 
     const waffle = d3.select('.waffle');
 
-    console.log("R", )
-
     waffle
-	.selectAll('.block')
-	.data(state.data, d => d.ObjectID)
-	.enter()
-	.append('div')
-	.attr('class', 'block')
-	.style('background-color', "white");
+        .selectAll('.block')
+        .data(state.data, d => d.ObjectID)
+        .enter()
+        .append('div')
+        .attr('class', 'block')
+        .style('background-color', d3.rgb("rgb(140, 25, 90)"));
 
 }
 
@@ -47,8 +47,10 @@ function draw() {
 
 // Global State utility function
 function setGlobalState(nextState) {
-    state = { ...state, ...nextState };
+    state = {
+        ...state,
+        ...nextState
+    };
     console.log("new state:", state);
     draw();
-  }
-  
+}
