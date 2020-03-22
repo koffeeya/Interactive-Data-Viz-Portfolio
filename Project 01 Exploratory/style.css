@@ -1,0 +1,32 @@
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    column-gap: 0.5em;
+}
+
+#filters {
+    background-color: blue;
+}
+
+#chart {
+    background-color: green;
+}
+
+#tooltip {
+    background-color: orange;
+}
+
+.waffle {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.block {
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
