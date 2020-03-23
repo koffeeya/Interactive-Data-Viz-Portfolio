@@ -1,23 +1,13 @@
 body {
     font-family: 'Dosis', sans-serif;
+    background-color: #060606;
+    color: white;
 }
 
 #dashboard {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 2fr;
     column-gap: 0.5em;
-}
-
-#filters {
-    background-color: grey;
-}
-
-#chart {
-    background-color: black;
-}
-
-#tooltip {
-    background-color: grey;
 }
 
 .waffle {
@@ -28,14 +18,21 @@ body {
 .block {
     width: 15px;
     height: 15px;
-    margin: 2px;
+    margin: 4px;
+}
+
+img {
+    max-width: 95%;
+    align-items: center;
+    border: 2px solid white;
 }
 
 .img {
-    max-width: 100px;
-    display: flex;
-    flex-wrap: wrap;
     padding: 10px;
     position: sticky;
-    top: 0;
+    top: 15px;
+}
+
+.subtitle {
+    position: sticky;
 }

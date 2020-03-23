@@ -17,7 +17,14 @@ class Chart {
                         d3.select("#tooltip")
                         .append("div")
                         .attr('class', 'img')
-                        .html('<img src="' + d.ThumbnailURL + '">' + d.Date + ", " + d.Title + ", " + d.Artist)})
+                        .html('<img src="' + d.ThumbnailURL + '">')
+                        .append("div")
+                        .attr('class', 'subtitle')
+                        .html('</br><i><b>' + d.Title + '</b></i> <p>(' + d.Date + ')</p>' + '</br><p>' + d.Artist + '</p></br><p>' + d.ArtistBio + '</p')
+                        .transition()
+                        .duration(200)
+                    }
+                        )
                     .on("mouseout", d => {
                         d3.select(".img")
                         .remove()
