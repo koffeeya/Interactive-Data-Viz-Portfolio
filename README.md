@@ -3,7 +3,7 @@ Final portfolio for Interactive Data Visualization (DATA 73200) course taken at 
 
 <br />
 
-### [Project 1: Exploratory](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/tree/master/Project%2001%20Exploratory)
+### [Project 1: Exploratory](https://koffeeya.github.io/Interactive-Data-Viz-Portfolio/Project%2001%20Exploratory/index.html)
 How does the dominant color of an artist’s works change over time?
 
 <br />
