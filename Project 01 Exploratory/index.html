@@ -9,25 +9,36 @@
 </head>
 
 <body>
-  <header>
-    <h1>EXPLORE MoMA PAINTINGS</h1>
-  </header>
 
   <div id="dashboard">
 
     <div id="filters">
-      <h3>#filters</h3>
+
+      <header>
+        <h1>EXPLORE MoMA PAINTINGS</h1>
+      </header>
+
+      <div class="dropdown">
+        <label for="dropdown" name="dropdown-artist">BY ARTIST</label><br>
+        <select id="dropdown-artist" name="dropdown"></select>
+      </div>
+
+      <div class="dropdown">
+        <label for="dropdown" name="dropdown-gender">BY GENDER</label><br>
+        <select id="dropdown-gender" name="dropdown"></select>
+      </div>
+
+      <div id="slider-year"></div>
+
+      <div id="slider-color"></div>
+
     </div>
 
     <div id="chart">
-      <h3>#chart</h3>
       <figure class="waffle"></figure>
     </div>
 
-    <div id="tooltip">
-      <h3>#tooltip</h3>
-    </div>
-
+    <div id="tooltip"></div>
 
   </div>
 

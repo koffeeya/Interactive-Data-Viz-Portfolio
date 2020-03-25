@@ -1,6 +1,6 @@
 // Import components
 import {
-    Chart
+    Waffle
 } from "./chart.js";
 
 let chart;
@@ -9,11 +9,11 @@ let chart;
 // Set global state variables
 let state = {
     data: [],
-    selectedTitle: null,
-    selectedYear: null,
-    selectedArtist: null,
-    selectedGender: null,
-    hover: null,
+    filteredData: [],
+    selectedTitle: "All",
+    selectedYear: "All",
+    selectedArtist: "All",
+    selectedGender: "All",
 }
 
 
@@ -22,7 +22,6 @@ d3.csv("data/artworks.csv", d3.autoType).then(
     data => {
         console.log("raw data", data);
         state.data = data.flat();
-        console.log("state data", state.data["rgbString"]);
         init();
     }
 );
@@ -30,7 +29,7 @@ d3.csv("data/artworks.csv", d3.autoType).then(
 
 // Init
 function init() {
-    chart = new Chart(state, setGlobalState);
+    chart = new Waffle(state, setGlobalState);
 }
 
 
