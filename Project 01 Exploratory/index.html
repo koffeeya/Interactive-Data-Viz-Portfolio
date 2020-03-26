@@ -15,22 +15,28 @@
     <div id="filters">
 
       <header>
-        <h1>EXPLORE MoMA PAINTINGS</h1>
+        <h1>PAINTINGS at MoMA</h1>
+        <p>There are 2,078 paintings at the Museum of Modern Art. Each square here represents one painting, filled with
+          the dominant color of the work and ordered by date.</p>
       </header>
 
-      <div class="dropdown">
-        <label for="dropdown" name="dropdown-artist">BY ARTIST</label><br>
-        <select id="dropdown-artist" name="dropdown"></select>
+      <div class="filter-containers">
+
+        <div class="dropdown">
+          <label for="dropdown" name="dropdown-artist">FILTER BY ARTIST</label><br>
+          <select id="dropdown-artist" name="dropdown"></select>
+        </div>
+
+        <div class="dropdown">
+          <label for="dropdown" name="dropdown-gender">FILTER BY GENDER</label><br>
+          <select id="dropdown-gender" name="dropdown"></select>
+        </div>
+
+        <div id="slider-year"></div>
+
+        <div id="slider-color"></div>
+
       </div>
-
-      <div class="dropdown">
-        <label for="dropdown" name="dropdown-gender">BY GENDER</label><br>
-        <select id="dropdown-gender" name="dropdown"></select>
-      </div>
-
-      <div id="slider-year"></div>
-
-      <div id="slider-color"></div>
 
     </div>
 
