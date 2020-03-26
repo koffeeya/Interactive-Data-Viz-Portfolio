@@ -2,6 +2,10 @@ class Waffle {
 
     constructor(state, setGlobalState) {
 
+
+
+        console.log("SORTED", state.data.slice().sort((a, b) => d3.descending(a.rgbString, b.rgbString)))
+
         this.waffle = d3
             .select('.waffle')
             .selectAll('.block')
@@ -72,6 +76,21 @@ class Waffle {
                         selectedGender: this.value
                     })
                 })
+
+        this.sortColor = d3
+            .select("#sort-color")
+            .on("change", function () {
+                if (this.checked == true) {
+                    setGlobalState({
+                        sortBy: "Color"
+                    })
+                } else(
+                    setGlobalState({
+                        sortBy: "Year"
+                    })
+                )
+            });
+
     }
 
     draw(state, setGlobalState) {
@@ -79,13 +98,19 @@ class Waffle {
 
         let filteredData = state.data;
 
+        if (state.sortBy === "Color") {
+            filteredData = filteredData.slice().sort((a, b) => d3.ascending(+a.sum, +b.sum)),
+                console.log("Now sorting by color!")
+        } else(filteredData = filteredData.slice().sort((a, b) => d3.ascending(a.Date, b.Date)),
+            console.log("Now sorting by year!"))
+
         if (state.selectedArtist !== "All") {
             filteredData = state.data.filter(d => d.Artist === state.selectedArtist)
-        } else (state.data.filter(d => "All" === state.selectedArtist))
+        } else(state.data.filter(d => "All" === state.selectedArtist))
 
         if (state.selectedGender !== "All") {
             filteredData = state.data.filter(d => d.Gender === state.selectedGender)
-        } else (state.data.filter(d => "All" === state.selectedGender))
+        } else(state.data.filter(d => "All" === state.selectedGender))
 
 
         this.waffle = d3

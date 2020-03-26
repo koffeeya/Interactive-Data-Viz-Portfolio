@@ -9,7 +9,7 @@ let chart;
 // Set global state variables
 let state = {
     data: [],
-    filteredData: [],
+    sortBy: "Year",
     selectedTitle: "All",
     selectedYear: "All",
     selectedArtist: "All",
