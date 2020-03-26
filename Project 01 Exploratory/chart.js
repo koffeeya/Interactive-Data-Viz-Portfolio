@@ -124,7 +124,21 @@ class Waffle {
                 .attr('class', 'block')
                 .style('background-color', d => d.rgbString)
 
-            );
+                // Tooltip
+                .on("mouseover", d => {
+                    d3.select("#tooltip")
+                        .append("div")
+                        .attr('class', 'img')
+                        .html('<img src="' + d.ThumbnailURL + '">')
+                        .append("div")
+                        .attr('class', 'subtitle')
+                        .html('<i><b><h3>' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</h3>' + '<p><b>' + d.Artist + '</b>' + ', &nbsp' + d.ArtistBio + '</p><p style="color:grey;">' + d.Medium + '</p>')
+                })
+
+                .on("mouseout", d => {
+                    d3.select(".img")
+                        .remove()
+                }));
 
     }
 }
