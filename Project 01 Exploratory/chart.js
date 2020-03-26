@@ -25,7 +25,7 @@ class Waffle {
                         .html('<img src="' + d.ThumbnailURL + '">')
                         .append("div")
                         .attr('class', 'subtitle')
-                        .html('</br><i><b><h2>' + d.Title + '</h2></b></i><p>' + d.Medium + ' , ' + d.Date + '</p>' + '<p>' + d.Artist + '</p><p>' + d.ArtistBio + '</p>')
+                        .html('<i><b><h3>' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</h3>' + '<p><b>' + d.Artist + '</b>' + ', &nbsp' + d.ArtistBio + '</p><p style="color:grey;">' + d.Medium + '</p>')
                 })
 
                 .on("mouseout", d => {
@@ -116,29 +116,13 @@ class Waffle {
         this.waffle = d3
             .select('.waffle')
             .selectAll('.block')
-            .data(filteredData, d => d.Date)
+            .data(filteredData, d => d.rgbString)
             .join(
 
                 enter => enter
                 .append('div')
                 .attr('class', 'block')
                 .style('background-color', d => d.rgbString)
-
-                .on("mouseover", d => {
-                    d3.select("#tooltip")
-                        .append("div")
-                        .attr('class', 'img')
-                        .html('<img src="' + d.ThumbnailURL + '">')
-                        .append("div")
-                        .attr('class', 'subtitle')
-                        .html('</br><i><b><h2>' + d.Title + '</h2></b></i><p>' + d.Medium + ' , ' + d.Date + '</p>' + '<p>' + d.Artist + '</p><p>' + d.ArtistBio + '</p>')
-                })
-
-                .on("mouseout", d => {
-                    d3.select(".img")
-                        .remove()
-                })
-
 
             );
 
