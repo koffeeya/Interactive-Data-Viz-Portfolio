@@ -10,10 +10,11 @@ let chart;
 let state = {
     data: [],
     sortBy: "Year",
-    selectedTitle: "All",
-    selectedYear: "All",
     selectedArtist: "All",
     selectedGender: "All",
+    artistActive: false,
+    genderActive: true,
+    height: null,
 }
 
 
@@ -30,6 +31,7 @@ d3.csv("data/artworks.csv", d3.autoType).then(
 // Init
 function init() {
     chart = new Waffle(state, setGlobalState);
+    draw();
 }
 
 

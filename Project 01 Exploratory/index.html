@@ -18,30 +18,44 @@
         <h1>PAINTINGS at MoMA</h1>
         <p>There are 2,078 paintings at the Museum of Modern Art. Each square here represents one painting, filled with
           the dominant color of the work and ordered by date.</p>
-        <p style="color:grey; font-size: 13px">The data comes from the <a href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection</a> on GitHub, cleaned and prepared in <a href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM' target='_new'>Python</a>. Since the dominant color was identified through machine learning, you may see errors -- it is imperfect compared to human perception!</p>
+        <p style="color:grey; font-size: 13px">The data comes from the <a
+            href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection</a> on GitHub, cleaned
+          and prepared in <a
+            href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
+            target='_new'>Python</a>. Since the dominant color was identified through machine learning, you may see
+          errors -- it is imperfect compared to human perception!</p>
       </header>
 
-      <div class="filter-containers">
+      <br>
 
-        <div class="dropdown">
-          <label for="dropdown" name="dropdown-artist">FILTER BY ARTIST</label><br>
+      <h3>EXPLORE BY</h3>
+
+      <div class="filter-container">
+
+        <div class="button-container">
+          <button id="gender-button" class="filter-buttons">GENDER</button>
+          <button id="artist-button" class="filter-buttons">ARTIST</button>
+        </div>
+
+        <div class="dropdown" id="artist-container">
+          <label for="dropdown" name="dropdown-artist"></label>
           <select id="dropdown-artist" name="dropdown"></select>
         </div>
 
-        <div class="dropdown">
-          <label for="dropdown" name="dropdown-gender">FILTER BY GENDER</label><br>
+        <div class="dropdown" id="gender-container">
+          <label for="dropdown" name="dropdown-gender"></label>
           <select id="dropdown-gender" name="dropdown"></select>
         </div>
 
-        <div class="sort-color">
-          <input type="checkbox" id="sort-color" name="sort-color">
-          <label for="sort-color">SORT BY COLOR</label>
-        </div>
+      </div>
 
-        <div id="slider-year"></div>
+      <div class="sort-color">
+        <input type="checkbox" id="sort-color" name="sort-color">
+        <label for="sort-color">COLOR</label>
+      </div>
 
-        <div id="slider-color"></div>
-
+      <div id="scroll-indicator">
+        <p>🡳 &nbsp SCROLL</p>
       </div>
 
     </div>
