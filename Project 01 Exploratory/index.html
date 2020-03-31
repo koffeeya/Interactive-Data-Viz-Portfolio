@@ -15,12 +15,12 @@
     <div id="filters" class="col1">
 
       <header>
-        <h1>PAINTINGS at MoMA</h1>
+        <h1>PAINTINGS at the MoMA</h1>
       </header>
 
       <div class="filter-container">
         <br>
-        <h3>EXPLORE BY</h3>
+        <h2>EXPLORE BY</h2>
 
         <div class="button-container">
           <button id="gender-button" class="filter-buttons">GENDER</button>
@@ -54,18 +54,19 @@
 
     <div id="chart">
       <div id="chart-title">
-        <p style="color:grey;">Each square below represents one of 2,078 paintings at the Museum of Modern Art, filled with the work's dominant color. By default, the visual is sorted by the date that the work was created.</p>
-        <p style="color:grey; font-size: 12px">Data source: <a
-            href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection</a> on GitHub, cleaned
-          and prepared in <a
-            href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
-            target='_new'>Python</a>.</p>
+        <p>Each square below represents one of 2,078 paintings at the Museum of Modern Art, filled with the work's dominant color. By default, the visual is sorted by the date that the work was created.</p>
       </div>
 
       <figure class="waffle"></figure>
     </div>
 
     <div id="tooltip">
+      <div id="data-source">
+        <p style="font-size: 12px">Data source: <a
+          href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection GitHub</a>. Data prep: <a
+          href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
+          target='_new'>Python</a>.</p>
+      </div>
     </div>
 
   </div>

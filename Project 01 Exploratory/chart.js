@@ -2,6 +2,7 @@ class Waffle {
 
     constructor(state, setGlobalState) {
 
+
         // Dropdowns
         this.artists = d3.map(state.data, d => d.Artist).keys().sort()
         this.artists.unshift(["All Artists"])
@@ -134,27 +135,24 @@ class Waffle {
             .join(
 
                 enter => enter
-                .append('div')
-                .attr('class', 'block')
-                .style('background-color', d => d.rgbString),
+                    .append('div')
+                    .attr('class', 'block')
+                    .style('background-color', d => d.rgbString),
                 update => update,
                 exit => exit.remove())
 
             // Tooltip
             .on("mouseover", d => {
+                d3.select(".img")
+                    .remove()
                 d3.select("#tooltip")
                     .append("div")
                     .attr('class', 'img')
                     .html('<img src="' + d.ThumbnailURL + '">')
                     .append("div")
                     .attr('class', 'subtitle')
-                    .html('<i><b><p style="font-size: 25px;">' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</p>' + '<p>' + d.Artist + '</p> <p style="color:grey; font-size: 15px;">' + d.ArtistBio + '</p><p style="color:grey; font-size: 15px;">' + d.Medium + '</p>')
+                    .html('<i><b><p style="font-size: 25px;">' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</p>' + '<p style="font-size: 25px;">' + d.Artist + '</p> <p style="color:grey; font-size: 15px;">' + d.ArtistBio + '</p><p style="color:grey; font-size: 15px;">' + d.Medium + '</p>')
             })
-
-            .on("mouseout", d => {
-                d3.select(".img")
-                    .remove()
-            });
 
         if (document.getElementById('chart').clientHeight < window.innerHeight) {
             d3.select('#scroll-indicator')

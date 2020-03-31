@@ -16,7 +16,7 @@ a {
 #dashboard {
     display: grid;
     grid-template-columns: 1fr 3fr 1.5fr;
-    column-gap: 1em;
+    column-gap: 2em;
 }
 
 .button-container {
@@ -28,6 +28,7 @@ a {
     width: 40%;
     max-width: 150px;
     font-family: 'Dosis';
+    font-size: 15px;
     background-color: #060606;
     color: white;
     padding: 5px;
@@ -36,15 +37,14 @@ a {
     outline-color: white;
 }
 
-@media (max-width: 400px) {
-    .flex-grid {
-        display: block;
-    }
-}
-
 #filters {
     padding: 0px 0px 0px 15px;
 }
+
+#chart {
+    padding: 0px 40px;
+}
+
 
 header {
     position: sticky;
@@ -81,7 +81,7 @@ option {
     font-size: 15px;
 }
 
-#scroll-indicator {
+#scroll-indicator, #data-source {
     position: fixed;
     bottom: 10px;
     font-family: 'Dosis';
@@ -90,7 +90,13 @@ option {
 }
 
 #chart-title {
-    padding: 25px 45px;
+    padding: 15px 45px;
+    color: white;
+    background-color: #060606;
+    position: sticky;
+    top: 0px;
+    border-bottom: 0.5px solid white;
+    opacity: 0.90;
 }
 
 .waffle {
@@ -101,7 +107,14 @@ option {
 .block {
     width: 25px;
     height: 25px;
-    margin: 0px;
+    border: 0.5px solid #060606;
+}
+
+.block:hover {
+    transform: scale(1.5);
+    border: 0.5px solid white;
+    box-shadow: 2px 2px 4px #060606;
+    transition: 0.03s;
 }
 
 img {
