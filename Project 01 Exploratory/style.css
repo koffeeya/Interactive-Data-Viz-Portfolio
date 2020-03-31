@@ -5,16 +5,28 @@ body {
 }
 
 h1 {
-    font-size: 55px;
-    line-height: 50px;
+    font-size: 45px;
+    line-height: 45px;
 }
 
 a {
     color: grey;
 }
 
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.5fr;
+    column-gap: 1em;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .filter-buttons {
-    width: 100px;
+    width: 40%;
+    max-width: 150px;
     font-family: 'Dosis';
     background-color: #060606;
     color: white;
@@ -24,32 +36,28 @@ a {
     outline-color: white;
 }
 
-#dashboard {
-    display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
-    column-gap: 1em;
+@media (max-width: 400px) {
+    .flex-grid {
+        display: block;
+    }
 }
 
 #filters {
-    padding: 0px 0px 0px 25px;
-}
-
-#scroll-indicator {
-    position: fixed;
-    bottom: 50px;
-    font-family: 'Dosis';
-    font-size: 20px;
-    color: #363636;
+    padding: 0px 0px 0px 15px;
 }
 
 header {
     position: sticky;
-    top: 15px;
+    top: 40px;
+}
+
+.filter-container {
+    position: sticky;
+    top: 160px;
 }
 
 #dropdown-artist,
 #dropdown-gender {
-    max-width: 90%;
     font-family: 'Dosis';
     background-color: #060606;
     color: white;
@@ -58,20 +66,31 @@ header {
     outline-color: white;
 }
 
+select {
+    width: 95%;
+    max-width: 315px;
+}
+
 .dropdown,
 .sort-color {
-    padding: 25px 0px 0px 0px;
-    width: 245px;
+    padding: 15px 0px 0px 0px;
+    width: 90%;
 }
 
 option {
     font-size: 15px;
 }
 
-.filter-container {
-    padding: 15px 0px;
-    position: sticky;
-    top: 350px;
+#scroll-indicator {
+    position: fixed;
+    bottom: 10px;
+    font-family: 'Dosis';
+    font-size: 20px;
+    color: grey;
+}
+
+#chart-title {
+    padding: 25px 45px;
 }
 
 .waffle {
@@ -82,7 +101,7 @@ option {
 .block {
     width: 25px;
     height: 25px;
-    margin: 0.5px;
+    margin: 0px;
 }
 
 img {
@@ -97,7 +116,6 @@ img {
 }
 
 .subtitle {
-    max-width: 75%;
-    position: sticky;
-    font-size: 20px;
+    width: 80%;
+    max-width: 300px;
 }

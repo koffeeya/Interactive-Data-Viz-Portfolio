@@ -12,25 +12,15 @@
 
   <div id="dashboard">
 
-    <div id="filters">
+    <div id="filters" class="col1">
 
       <header>
         <h1>PAINTINGS at MoMA</h1>
-        <p>There are 2,078 paintings at the Museum of Modern Art. Each square here represents one painting, filled with
-          the dominant color of the work and ordered by date.</p>
-        <p style="color:grey; font-size: 13px">The data comes from the <a
-            href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection</a> on GitHub, cleaned
-          and prepared in <a
-            href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
-            target='_new'>Python</a>. Since the dominant color was identified through machine learning, you may see
-          errors -- it is imperfect compared to human perception!</p>
       </header>
 
-      <br>
-
-      <h3>EXPLORE BY</h3>
-
       <div class="filter-container">
+        <br>
+        <h3>EXPLORE BY</h3>
 
         <div class="button-container">
           <button id="gender-button" class="filter-buttons">GENDER</button>
@@ -47,24 +37,36 @@
           <select id="dropdown-gender" name="dropdown"></select>
         </div>
 
-      </div>
+        <br>
 
-      <div class="sort-color">
-        <input type="checkbox" id="sort-color" name="sort-color">
-        <label for="sort-color">COLOR</label>
-      </div>
+        <div class="sort-color">
+          <input type="checkbox" id="sort-color" name="sort-color">
+          <label for="sort-color">SORT BY SHADE</label>
+        </div>
 
-      <div id="scroll-indicator">
-        <p>🡳 &nbsp SCROLL</p>
+        <div id="scroll-indicator">
+          <p>🡳 &nbsp SCROLL</p>
+        </div>
+
       </div>
 
     </div>
 
     <div id="chart">
+      <div id="chart-title">
+        <p style="color:grey;">Each square below represents one of 2,078 paintings at the Museum of Modern Art, filled with the work's dominant color. By default, the visual is sorted by the date that the work was created.</p>
+        <p style="color:grey; font-size: 12px">Data source: <a
+            href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection</a> on GitHub, cleaned
+          and prepared in <a
+            href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
+            target='_new'>Python</a>.</p>
+      </div>
+
       <figure class="waffle"></figure>
     </div>
 
-    <div id="tooltip"></div>
+    <div id="tooltip">
+    </div>
 
   </div>
 

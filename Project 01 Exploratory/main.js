@@ -10,8 +10,8 @@ let chart;
 let state = {
     data: [],
     sortBy: "Year",
-    selectedArtist: "All",
-    selectedGender: "All",
+    selectedArtist: "All Artists",
+    selectedGender: "All Genders",
     artistActive: false,
     genderActive: true,
     height: null,
