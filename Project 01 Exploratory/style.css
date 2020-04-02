@@ -10,12 +10,19 @@ h1 {
 }
 
 a {
-    color: grey;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: white;
+    color: #060606;
+    font-weight: 600;
 }
 
 #dashboard {
     display: grid;
-    grid-template-columns: 1fr 3fr 1.5fr;
+    grid-template-columns: 1fr 3fr 2fr;
     column-gap: 2em;
 }
 
@@ -35,6 +42,14 @@ a {
     margin: 0px 15px 0px 0px;
     border: 1px solid white;
     outline-color: white;
+    font-weight: 600;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: white;
+    font-weight: 600;
+    color: #060606;
 }
 
 #filters {
@@ -66,6 +81,10 @@ header {
     outline-color: white;
 }
 
+#dropdown-artist:hover, #dropdown-gender:hover, #sort-color:hover {
+    cursor: pointer;
+}
+
 select {
     width: 95%;
     max-width: 315px;
@@ -81,7 +100,15 @@ option {
     font-size: 15px;
 }
 
-#scroll-indicator, #data-source {
+#scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    font-family: 'Dosis';
+    font-size: 20px;
+    color: grey;
+}
+
+#data-source {
     position: fixed;
     bottom: 10px;
     font-family: 'Dosis';
@@ -105,16 +132,17 @@ option {
 }
 
 .block {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     border: 0.5px solid #060606;
 }
 
 .block:hover {
     transform: scale(1.5);
+    box-shadow: 0px 0px 4px grey;
     border: 0.5px solid white;
-    box-shadow: 2px 2px 4px #060606;
     transition: 0.03s;
+    cursor: pointer;
 }
 
 img {

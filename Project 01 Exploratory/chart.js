@@ -1,7 +1,7 @@
 class Waffle {
 
     constructor(state, setGlobalState) {
-
+        console.log("Constructing Chart!")
 
         // Dropdowns
         this.artists = d3.map(state.data, d => d.Artist).keys().sort()
@@ -87,10 +87,10 @@ class Waffle {
                 })
             })
 
-
     }
 
     draw(state, setGlobalState) {
+        console.log("Drawing Chart!")
 
         if (state.artistActive === true) {
             d3.select("#gender-container.dropdown").attr("style", "display: none")
@@ -135,24 +135,28 @@ class Waffle {
             .join(
 
                 enter => enter
-                    .append('div')
-                    .attr('class', 'block')
-                    .style('background-color', d => d.rgbString),
+                .append('div')
+                .attr('class', 'block')
+                .style('background-color', d => d.rgbString),
                 update => update,
                 exit => exit.remove())
 
             // Tooltip
-            .on("mouseover", d => {
-                d3.select(".img")
-                    .remove()
+            .on("click", d => {
+                d3.select(".img").remove()
                 d3.select("#tooltip")
                     .append("div")
                     .attr('class', 'img')
                     .html('<img src="' + d.ThumbnailURL + '">')
                     .append("div")
                     .attr('class', 'subtitle')
-                    .html('<i><b><p style="font-size: 25px;">' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</p>' + '<p style="font-size: 25px;">' + d.Artist + '</p> <p style="color:grey; font-size: 15px;">' + d.ArtistBio + '</p><p style="color:grey; font-size: 15px;">' + d.Medium + '</p>')
+                    .html('<i><b><p style="font-size: 25px; line-height: 26px;">' + d.Title + '</i></b> &nbsp(' + d.Date + ') ' + '</p>' + '<p style="font-size: 25px; line-height: 26px;">' + d.Artist + '</p> <p style="color:grey; font-size: 15px; line-height: 16px;">' + d.Medium + ', &nbsp' + d.Dimensions + '</p>' + '<p>' + d.Artist + ' has ' + d.ArtistCount + ' painting(s) in the collection.</p>')
+                    .append("div")
+                    .attr('class', 'button-container')
+                    .html('<button id="learn-more-button" class="filter-buttons"><a style="text-decoration: none;" href=' + d.URL + 'target="_new">About the Work</a></button> <button id="view-artist-button" class="filter-buttons">View Artist</button>')
             })
+
+
 
         if (document.getElementById('chart').clientHeight < window.innerHeight) {
             d3.select('#scroll-indicator')

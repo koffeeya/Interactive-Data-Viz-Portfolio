@@ -14,14 +14,14 @@ let state = {
     selectedGender: "All Genders",
     artistActive: false,
     genderActive: true,
-    height: null,
 }
 
 
 // Read in data
 d3.csv("data/artworks.csv", d3.autoType).then(
     data => {
-        console.log("raw data", data);
+        /* console.log("raw data", data); */
+        console.log("Data Loaded!")
         state.data = data.flat();
         init();
     }
