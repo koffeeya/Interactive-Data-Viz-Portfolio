@@ -6,22 +6,22 @@
   <title>Explore Paintings at the MoMA</title>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  
+
 </head>
 
 <body>
 
   <div id="dashboard">
 
-    <div id="filters" class="col1">
+    <div id="filters">
+
 
       <header>
         <h1>PAINTINGS at the MoMA</h1>
       </header>
 
-      <div class="filter-container">
-        <br>
-        <h2>EXPLORE BY</h2>
+      <div class="filter-container" id="filter-container">
+        <p><b>EXPLORE BY</b></p>
 
         <div class="button-container">
           <button id="gender-button" class="filter-buttons">GENDER</button>
@@ -29,27 +29,30 @@
         </div>
 
         <div class="dropdown" id="artist-container">
-          <label for="dropdown" name="dropdown-artist"></label>
-          <select id="dropdown-artist" name="dropdown"></select>
+          <div>
+            <label for="dropdown" name="dropdown-artist"></label>
+            <select id="dropdown-artist" name="dropdown"></select>
+          </div>
         </div>
 
         <div class="dropdown" id="gender-container">
-          <label for="dropdown" name="dropdown-gender"></label>
-          <select id="dropdown-gender" name="dropdown"></select>
+          <div>
+            <label for="dropdown" name="dropdown-gender"></label>
+            <select id="dropdown-gender" name="dropdown"></select>
+          </div>
         </div>
 
         <br>
 
-        <div class="sort-color">
-          <input type="checkbox" id="sort-color" name="sort-color">
-          <label for="sort-color">SORT BY SHADE</label>
-        </div>
+        <div id="summary-chart"></div>
+
+        <br>
 
         <div id="data-source">
-          <p style="font-size: 12px">Data source: <a
-            href='https://github.com/MuseumofModernArt/collection' target='_new'>MoMA Collection GitHub</a>. Data prep: <a
-            href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
-            target='_new'>Python</a>.</p>
+          <p style="font-size: 12px">Data source: <a href='https://github.com/MuseumofModernArt/collection'
+              target='_new'>MoMA Collection GitHub</a>. Data prep: <a
+              href='https://colab.research.google.com/drive/1Mg13RVgo_NEBKDEEI8-q0TR400XRvZOV#scrollTo=KoYefew0DvCM'
+              target='_new'>Python</a>.</p>
         </div>
 
         <div id="scroll-indicator">
@@ -62,7 +65,13 @@
 
     <div id="chart">
       <div id="chart-title">
-        <p>Each square below represents one of 2,078 paintings at the Museum of Modern Art, filled with the work's dominant color. By default, the visual is sorted by the date that the work was created.</p>
+        <p>Each square represents one of 2,078 paintings at the Museum of Modern Art, filled with the work's dominant
+          color. By default, the visual is sorted by year created. <b>Click on a work to learn more.</b></p>
+
+          <div class="sort-color">
+            <input type="checkbox" id="sort-color" name="sort-color">
+            <label for="sort-color">SORT BY SHADE</label>
+          </div>
       </div>
 
       <figure class="waffle"></figure>

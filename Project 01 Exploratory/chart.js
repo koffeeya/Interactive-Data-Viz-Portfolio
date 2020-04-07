@@ -71,6 +71,10 @@ class Waffle {
                     artistActive: true,
                     genderActive: false,
                     sortBy: "Year",
+                    dataSource: "data/artistSummary.csv",
+                })
+                d3.csv(state.dataSource, d3.autoType).then(data => {
+                    setGlobalState({summaryData: data.flat()})
                 })
             })
 
@@ -84,6 +88,10 @@ class Waffle {
                     artistActive: false,
                     genderActive: true,
                     sortBy: "Year",
+                    dataSource: "data/genderSummary.csv",
+                })
+                d3.csv(state.dataSource, d3.autoType).then(data => {
+                    setGlobalState({summaryData: data.flat()})
                 })
             })
 
@@ -126,7 +134,7 @@ class Waffle {
                     return d3.ascending(+a.sum, +b.sum)
                 } else return (d3.ascending(a.Date, b.Date))
             });
-
+        
 
         this.waffle = d3
             .select('.waffle')

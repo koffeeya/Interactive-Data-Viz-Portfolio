@@ -5,8 +5,8 @@ body {
 }
 
 h1 {
-    font-size: 45px;
-    line-height: 45px;
+    font-size: 40px;
+    line-height: 40px;
 }
 
 a {
@@ -22,8 +22,13 @@ a:hover {
 
 #dashboard {
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1.2fr 3fr 2fr;
     column-gap: 2em;
+}
+
+.filter-container {
+    position: sticky;
+    top: 160px;
 }
 
 .button-container {
@@ -66,10 +71,6 @@ header {
     top: 40px;
 }
 
-.filter-container {
-    position: sticky;
-    top: 160px;
-}
 
 #dropdown-artist,
 #dropdown-gender {
@@ -92,7 +93,6 @@ select {
 
 .dropdown,
 .sort-color {
-    padding: 15px 0px 0px 0px;
     width: 90%;
 }
 
@@ -160,3 +160,8 @@ img {
     width: 80%;
     max-width: 300px;
 }
+
+.text {
+    color:white;
+}
+

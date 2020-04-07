@@ -1,14 +1,17 @@
 // Import components
-import {
-    Waffle
-} from "./chart.js";
+import { Waffle } from "./chart.js";
+import { Gender } from "./gender.js";
 
 let chart;
+let gender;
 
 
 // Set global state variables
 let state = {
     data: [],
+    dataSource: "data/genderSummary.csv",
+    summaryData: [],
+    filteredData: [],
     sortBy: "Year",
     selectedArtist: "All Artists",
     selectedGender: "All Genders",
@@ -16,12 +19,11 @@ let state = {
     genderActive: true,
 }
 
-
 // Read in data
 d3.csv("data/artworks.csv", d3.autoType).then(
     data => {
         /* console.log("raw data", data); */
-        console.log("Data Loaded!")
+        console.log("Artist data loaded!")
         state.data = data.flat();
         init();
     }
@@ -31,6 +33,7 @@ d3.csv("data/artworks.csv", d3.autoType).then(
 // Init
 function init() {
     chart = new Waffle(state, setGlobalState);
+    gender = new Gender(state, setGlobalState);
     draw();
 }
 
@@ -38,6 +41,7 @@ function init() {
 // Draw
 function draw() {
     chart.draw(state, setGlobalState);
+    gender.draw(state, setGlobalState);
 }
 
 
