@@ -26,6 +26,7 @@
         <div class="button-container">
           <button id="gender-button" class="filter-buttons">GENDER</button>
           <button id="artist-button" class="filter-buttons">ARTIST</button>
+          <button id="country-button" class="filter-buttons">COUNTRY</button>
         </div>
 
         <div class="dropdown" id="artist-container">
@@ -42,9 +43,17 @@
           </div>
         </div>
 
-        <br>
+        <div class="dropdown" id="country-container">
+          <div>
+            <label for="dropdown" name="dropdown-country"></label>
+            <select id="dropdown-country" name="dropdown"></select>
+          </div>
+        </div>
 
-        <div id="summary-chart"></div>
+        <div id="summary-container">
+          <div id="summary-title"><p>Top in category</p></div>
+          <div id="summary-chart"></div>
+        </div>
 
         <br>
 

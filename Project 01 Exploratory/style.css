@@ -38,13 +38,13 @@ a:hover {
 
 .filter-buttons {
     width: 40%;
-    max-width: 150px;
+    max-width: 200px;
     font-family: 'Dosis';
     font-size: 15px;
     background-color: #060606;
     color: white;
     padding: 5px;
-    margin: 0px 15px 0px 0px;
+    margin: 5px 5px 2.5px 0px;
     border: 1px solid white;
     outline-color: white;
     font-weight: 600;
@@ -73,7 +73,7 @@ header {
 
 
 #dropdown-artist,
-#dropdown-gender {
+#dropdown-gender, #dropdown-country, #dropdown-year {
     font-family: 'Dosis';
     background-color: #060606;
     color: white;
@@ -94,6 +94,7 @@ select {
 .dropdown,
 .sort-color {
     width: 90%;
+    padding: 5px 0px 0px 0px;
 }
 
 option {
@@ -162,6 +163,25 @@ img {
 }
 
 .text {
-    color:white;
+    color:grey;
 }
 
+rect {
+    fill: rgb(82, 81, 81);
+    padding: 10px;
+    border: 0.5px solid white;
+}
+
+rect:hover {
+    fill: grey;
+}
+
+.label {
+    fill: white;
+    font-size: 12px;
+}
+
+#summary-title {
+    padding: 25px 0px 0px 10px;
+    margin: 0;
+}

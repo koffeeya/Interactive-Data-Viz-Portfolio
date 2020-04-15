@@ -15,8 +15,10 @@ let state = {
     sortBy: "Year",
     selectedArtist: "All Artists",
     selectedGender: "All Genders",
+    selectedCountry: "All Countries",
     artistActive: false,
     genderActive: true,
+    countryActive: false,
 }
 
 // Read in data
@@ -51,6 +53,5 @@ function setGlobalState(nextState) {
         ...state,
         ...nextState
     };
-    console.log("new state:", state);
     draw();
 }

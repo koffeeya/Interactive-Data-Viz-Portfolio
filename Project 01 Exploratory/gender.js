@@ -1,11 +1,9 @@
 class Gender {
     constructor(state, setGlobalState){
-      
-      console.log("Constructing Gender Summary!")
 
-      this.width = document.getElementById('filters').clientWidth * 0.7;
-      this.height = document.getElementById('filters').clientHeight * 0.7;
-      this.margins = { top: 10, bottom: 10, left: 10, right: 10 };
+      this.width = 200;
+      this.height = 150;
+      this.margins = { top: 5, bottom: 5, left: 5, right: 5 };
 
       this.svg = d3
         .select("#summary-chart")
@@ -17,8 +15,6 @@ class Gender {
 
     draw(state, setGlobalState) {
 
-      console.log(state.summaryData)
-
       this.yScale = d3
           .scaleBand()
           .domain(state.summaryData.map(d => d.category))
@@ -26,7 +22,7 @@ class Gender {
   
       this.xScale = d3
           .scaleLinear()
-          .domain([0, d3.max(state.summaryData, d => d.count)])
+          .domain([0, d3.max(state.summaryData, d => +d.count)])
           .range([this.margins.left, this.width - this.margins.right])
 
        this.yAxis = d3
@@ -43,7 +39,7 @@ class Gender {
           // set the width, height, and color of each bar
           .attr("width", d => this.xScale(d.count))
           .attr("height", this.yScale.bandwidth())
-          .attr("fill", "grey");
+          .selectAll("#summary-title")
 
         const text = this.svg
           .selectAll("text")
@@ -52,9 +48,8 @@ class Gender {
           .attr("class", "label")
           // set coordinates for label
           .attr("y", d => this.yScale(d.category) + (this.yScale.bandwidth()/1.5))
-          .attr("x", d => (this.margins.left + (this.width * 0.07)))
-          .text(d => d.category + ', ' + d.count)
-          .attr("style", "text-color: white;");
+          .attr("x", d => (this.margins.left) + 10)
+          .text(d => d.category + ', ' + d.count);
 
     }
 }
