@@ -1,9 +1,9 @@
 // Import components
 import { Waffle } from "./chart.js";
-import { Gender } from "./gender.js";
+import { Summary } from "./summary.js";
 
 let chart;
-let gender;
+let summary;
 
 
 // Set global state variables
@@ -35,7 +35,7 @@ d3.csv("data/artworks.csv", d3.autoType).then(
 // Init
 function init() {
     chart = new Waffle(state, setGlobalState);
-    gender = new Gender(state, setGlobalState);
+    summary = new Summary(state, setGlobalState);
     draw();
 }
 
@@ -43,7 +43,7 @@ function init() {
 // Draw
 function draw() {
     chart.draw(state, setGlobalState);
-    gender.draw(state, setGlobalState);
+    summary.draw(state, setGlobalState);
 }
 
 

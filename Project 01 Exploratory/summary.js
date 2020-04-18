@@ -1,4 +1,4 @@
-class Gender {
+class Summary {
     constructor(state, setGlobalState){
 
       this.width = 200;
@@ -55,5 +55,5 @@ class Gender {
 }
 
 export {
-    Gender
+    Summary
 };
