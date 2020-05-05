@@ -7,14 +7,84 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6922adca96.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>Title Text</h1>
-    <h2>SUBHEADER TEXT</h2>
-    <h3>Subtitle Text</h3>
-    <p>Body Copy</p>
+    <div id="body-wrapper">
+
+        <!-- Introduction -->
+        <div id="section1">
+
+            <div id="intro-image">
+                <img src="assets/cover.png">
+                <div id="intro-image-credit">
+                    Art Credit: <a href="http://www.wakeahjhane.com/about" target="_new">Wakeah Jhane</a>, Comanche
+                    artist
+                </div>
+            </div>
+
+            <div id="intro-title">
+                <h1>Why are Tribal Schools<br>in Trouble?</h1>
+            </div>
+
+            <div id="intro-subtitle">
+                <h3>Native Americans on reservations have the lowest<br>graduation rates in the United States.</h3>
+            </div>
+
+            <div class="section-arrow" id="intro-arrow">
+                <a href="#part1"><i class="fas fa-chevron-circle-down"></i></a>
+            </div>
+
+        </div>
+
+        <!-- Part 1 -->
+        <div class="story-point" id="part1">
+            <div class="narrative" id="part1-text">
+                <h2>Tribal schools serve an important purpose.</h2>
+                <p>There are XXXXX students who identify as Native American in the US, affiliated with over XX
+                    individual tribal nations.</p>
+                <p>90% of those students attend regular schools, but the remaining 10% attend one of 184 tribal schools
+                    and colleges across the country. Approximately XXXX students attend these schools.</p>
+                <p>They are overseen by the Bureau of Indian Education (part of the Bureau of Indian Affairs, in the
+                    Department of the Interior).</p>
+                <p>About 30% of schools are operated by the BIE, and 70% are directly operated by the tribe.</p>
+            </div>
+            <div class="visual" id="part1-chart">
+                <div class="visual-title">
+                    <h3>Map of tribal nation boundaries</h3>
+                </div>
+                <div class="visual-d3" id="part1-map-boundaries"></div>
+            </div>
+        </div>
+
+        <!-- Part 2 -->
+        <div class="story-point" id="part2">
+            <div class="narrative" id="part2-text">
+                <h2>Tribal schools serve an important purpose.</h2>
+                <p>There are XXXXX students who identify as Native American in the US, affiliated with over XX
+                    individual tribal nations.</p>
+                <p>90% of those students attend regular schools, but the remaining 10% attend one of 184 tribal schools
+                    and colleges across the country. Approximately XXXX students attend these schools.</p>
+                <p>They are overseen by the Bureau of Indian Education (part of the Bureau of Indian Affairs, in the
+                    Department of the Interior).</p>
+                <p>About 30% of schools are operated by the BIE, and 70% are directly operated by the tribe.</p>
+            </div>
+            <div class="visual" id="part2-chart">
+                <div class="visual-title">
+                    <h3>Map of tribal nation boundaries</h3>
+                </div>
+                <div class="visual-d3" id="part2-map-schools"></div>
+            </div>
+        </div>
+
+
+
+
+    </div>
 
     <script src="../lib/d3.js"></script>
     <script src="../lib/d3-array.js"></script>

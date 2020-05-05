@@ -1,6 +1,7 @@
 /* 
 COLORS
 Brown: #9a3106
+Light Brown: #ff743d
 Blue: #2E86AB
 Light Blue: #b5e5f9
 Yellow: #EDAE49
@@ -8,8 +9,11 @@ Gray: #cccccc
 Off-Black: #212121
 */
 
+/* GENERAL HTML */
+
 body {
     font-family: 'IBM Plex Serif', sans-serif;
+    margin: 0px;
 }
 
 h1 {
@@ -33,4 +37,133 @@ h3 {
 p {
     font-family: 'IBM Plex Serif';
     font-size: 14px;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: white;
+}
+
+
+/* CLASSES */
+
+.section-arrow {
+    font-size: 40px;
+    text-align: center;
+    padding: 0px 15px 25px 15px;
+    animation-name: arrow-point;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes arrow-point {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.story-point {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 1em;
+    row-gap: 2em;
+    margin: 30px 15px;
+}
+
+.narrative {
+    padding: 30px 30px;
+    color: white;
+}
+
+.visual {
+    background-color: #cccccc;
+}
+
+
+
+/* INTRODUCTION */
+
+#section1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #9a3106;
+    color: white;
+    padding: 0px 0px 25px 0px;
+    margin: 0px 0px 25px 0px;
+}
+
+#intro-image-credit {
+    text-align: right;
+    font-size: 10px;
+    padding: 0px 10px 0px 0px;
+    color: #ff743d;
+}
+
+#intro-image-credit>a {
+    color: #ff743d;
+}
+
+#intro-title {
+    text-align: center;
+    padding: 15px 15px 0px 15px;
+    line-height: 50px;
+}
+
+#intro-subtitle {
+    text-align: center;
+    padding: 0px 15px 15px 15px;
+    line-height: 20px;
+}
+
+#intro-arrow>a {
+    color: #ff743d;
+    text-decoration: none;
+}
+
+#intro-arrow>a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+/* PART 1 */
+
+#part1-text {
+    background-color: #2E86AB;
+}
+
+#part1-chart {
+    background-color: #cccccc;
+}
+
+#part1-arrow>a {
+    color: #b5e5f9;
+    text-decoration: none;
+}
+
+#part1-arrow>a:hover {
+    color: #2E86AB;
+    cursor: pointer;
+}
+
+
+
+
+/* PART 2 */
+
+#part2-text {
+    background-color: #EDAE49;
+}
+
+#part2-arrow>a {
+    color: #b5e5f9;
+    text-decoration: none;
+}
+
+#part2-arrow>a:hover {
+    color: #2E86AB;
+    cursor: pointer;
 }
