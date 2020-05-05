@@ -1,0 +1,36 @@
+/* 
+COLORS
+Brown: #9a3106
+Blue: #2E86AB
+Light Blue: #b5e5f9
+Yellow: #EDAE49
+Gray: #cccccc
+Off-Black: #212121
+*/
+
+body {
+    font-family: 'IBM Plex Serif', sans-serif;
+}
+
+h1 {
+    font-family: 'IBM Plex Sans';
+    font-size: 48px;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: 'IBM Plex Sans';
+    font-size: 28px;
+    font-weight: 700;
+}
+
+h3 {
+    font-family: 'IBM Plex Serif';
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'IBM Plex Serif';
+    font-size: 14px;
+}
