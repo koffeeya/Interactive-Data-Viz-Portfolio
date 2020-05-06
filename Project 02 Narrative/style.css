@@ -18,8 +18,9 @@ body {
 
 h1 {
     font-family: 'IBM Plex Sans';
-    font-size: 48px;
+    font-size: 75px;
     font-weight: 700;
+    line-height: 73px;
 }
 
 h2 {
@@ -60,9 +61,17 @@ a {
 }
 
 @keyframes arrow-point {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .story-point {
@@ -107,15 +116,23 @@ a {
 }
 
 #intro-title {
+    padding: 0% 20% 0% 20%;
     text-align: center;
-    padding: 15px 15px 0px 15px;
-    line-height: 50px;
+}
+
+#intro-narrative {
+    padding: 0% 20% 4% 20%;
+    align-items: center;
+    justify-content: center;
 }
 
 #intro-subtitle {
     text-align: center;
-    padding: 0px 15px 15px 15px;
     line-height: 20px;
+}
+
+#intro-text {
+    text-align: center;
 }
 
 #intro-arrow>a {
