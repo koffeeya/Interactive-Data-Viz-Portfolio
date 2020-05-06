@@ -79,7 +79,7 @@ a {
     grid-template-columns: 1fr 2fr;
     column-gap: 1em;
     row-gap: 2em;
-    margin: 30px 15px;
+    margin: 30px 0px;
 }
 
 .narrative {
@@ -196,6 +196,14 @@ a {
         font-size: 55px;
         font-weight: 700;
         line-height: 73px;
+    }
+
+    .story-point {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0em;
+        row-gap: 0.5em;
+        margin: 30px 0px;
     }
 
 }
