@@ -184,3 +184,18 @@ a {
     color: #2E86AB;
     cursor: pointer;
 }
+
+
+
+
+/* MEDIA BREAKPOINT */
+@media only screen and (max-width: 750px) {
+
+    h1 {
+        font-family: 'IBM Plex Sans';
+        font-size: 55px;
+        font-weight: 700;
+        line-height: 73px;
+    }
+
+}
