@@ -14,6 +14,7 @@ Off-Black: #212121
 body {
     font-family: 'IBM Plex Serif', sans-serif;
     margin: 0px;
+    display: grid;
 }
 
 h1 {
@@ -48,8 +49,16 @@ a {
     color: white;
 }
 
+.chart {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* CLASSES */
+
+
 
 .section-arrow {
     font-size: 40px;
@@ -74,37 +83,72 @@ a {
     }
 }
 
-.story-point {
+#scroll, #scroll2 {
+    position: relative;
+    background-color: #f3f3f3;
+    padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 1em;
-    row-gap: 2em;
-    margin: 30px 0px;
+    grid-template-columns: 2fr 3fr;
 }
 
-.narrative {
-    padding: 30px 30px;
+article {
+    position: relative;
+    padding: 45px;
+    max-width: 100rem;
+    margin: 0 auto;
+}
+
+.scroll__graphic {
+    position: sticky;
+    top: 15%;
+}
+
+.scroll__graphic .chart {
+    position: sticky;
+    top: 15%;
+    position: sticky;
+    margin: 0;
+    transform: translate3d(0, 0, 0);
+    background-color: #cccccc;
+    z-index: 0;
+}
+
+#scroll {
+    position: relative;
+    background-color: #f3f3f3;
+}
+
+.scroll__text {
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.step {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 100% 0%;
+}
+
+.step:last-child {
+    margin-bottom: 100%;
+}
+
+.step.is-active {
+    background-color: #9a3106;
     color: white;
 }
 
-.visual {
-    background-color: #cccccc;
-}
-
-.visual-d3 {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    vertical-align: top;
-    overflow: hidden;
-}
-
-.svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
+.step p {
+    text-align: center;
+    padding: 2rem;
+    font-size: 10px;
 }
 
 
@@ -162,44 +206,6 @@ a {
 }
 
 
-/* PART 1 */
-
-#part1-text {
-    background-color: #2E86AB;
-}
-
-#part1-chart {
-    background-color: #cccccc;
-}
-
-#part1-arrow>a {
-    color: #b5e5f9;
-    text-decoration: none;
-}
-
-#part1-arrow>a:hover {
-    color: #2E86AB;
-    cursor: pointer;
-}
-
-
-
-
-/* PART 2 */
-
-#part2-text {
-    background-color: #EDAE49;
-}
-
-#part2-arrow>a {
-    color: #b5e5f9;
-    text-decoration: none;
-}
-
-#part2-arrow>a:hover {
-    color: #2E86AB;
-    cursor: pointer;
-}
 
 
 
@@ -212,14 +218,6 @@ a {
         font-size: 55px;
         font-weight: 700;
         line-height: 73px;
-    }
-
-    .story-point {
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 0em;
-        row-gap: 0.5em;
-        margin: 30px 0px;
     }
 
 }
