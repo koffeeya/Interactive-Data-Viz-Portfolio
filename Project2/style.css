@@ -67,14 +67,20 @@ button:disabled {
     cursor: default;
 }
 
-hr {
+/* hr {
     height:4px;
     border-width:0;
     background-color:lightgray;
     margin: 10% 0%;
-}
+} */
 
 /* INTRODUCTION */
+
+.tooltip {
+    font-family: 'IBM Plex Sans';
+    color: black;
+    line-height: 10px;
+}
 
 #title-wrapper {
     background-color: #9a3106;
@@ -153,19 +159,24 @@ hr {
 
 .section {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2.5fr;
     grid-template-rows: 1fr;
     column-gap: 10px;
 }
 
 .narrative {
     padding: 5%;
-    margin: 50% 0% 120% 0%;
+    margin: 75% 0% 150% 0%;
+}
+
+.first-point {
+    margin: 50% 0% 150% 0%;
 }
 
 .part1 {
     background-color:#9a3106;
     color: white;
+    padding: 50px;
 }
 
 .part2 {
@@ -203,7 +214,7 @@ hr {
         font-family: 'IBM Plex Sans';
         color: #ffad8c;
         background-color: #9a3106;
-        padding: 0% 30%;
+        padding: 0% 20%;
     }
 
     #intro-text {

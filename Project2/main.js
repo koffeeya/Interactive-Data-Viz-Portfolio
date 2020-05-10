@@ -13,6 +13,7 @@ let state = {
     dataSchools: [],
     dataScorecard: [],
     schoolsList: null,
+    operatorList: null,
     projectionUSA: null,
     pathUSA: null,
     height: 300,
@@ -40,7 +41,8 @@ Promise.all([
 function setScales() {
     state.projectionUSA = d3.geoAlbersUsa().fitSize([state.width, state.height], state.geoUSA);
     state.pathUSA = d3.geoPath().projection(state.projectionUSA);
-    state.schoolsList = d3.map(state.dataScorecard, d => d.School).keys().sort()
+    state.schoolsList = d3.map(state.dataSchools, d => d.School).keys();
+    state.operatorList = d3.map(state.dataSchools, d => d.Operator).keys();
 }
 
 
@@ -80,3 +82,6 @@ function findWidth() {
 window.addEventListener("resize", function() {
     findWidth();
 })
+
+
+/* INTERSECTION OBSERVER */
