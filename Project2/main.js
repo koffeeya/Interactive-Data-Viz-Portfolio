@@ -3,22 +3,23 @@ import {
     Map
 } from "./map.js"
 
-let map;
-
+let map
 
 /* APPLICATION STATE */
 
 let state = {
     geoUSA: null,
     geoTribal: null,
-    schoolsData: null,
-    scorecardData: null,
-    figureHeight: 0,
-    figureWidth: 0,
+    dataSchools: [],
+    dataScorecard: [],
+    schoolsList: null,
+    projectionUSA: null,
+    pathUSA: null,
+    height: 300,
+    width: 300,
+    mapRatio: 0,
     hover: null,
 }
-
-
 
 /* LOAD DATA */
 Promise.all([
@@ -29,77 +30,23 @@ Promise.all([
 ]).then(([usaData, tribalData, schoolsData, scorecardsData]) => {
     state.geoUSA = usaData;
     state.geoTribal = tribalData;
-    state.schoolsData = schoolsData;
-    state.scorecardData = scorecardsData;
-    console.log("data loaded", state.geoTribal);
+    state.dataSchools = schoolsData;
+    state.dataScorecard = scorecardsData;
+    findWidth();
+    setScales();
     init();
 });
 
-/* UTILITY FUNCTIONS */
-function setGlobalState(nextState) {
-    state = {
-        ...state,
-        ...nextState
-    };
+function setScales() {
+    state.projectionUSA = d3.geoAlbersUsa().fitSize([state.width, state.height], state.geoUSA);
+    state.pathUSA = d3.geoPath().projection(state.projectionUSA);
+    state.schoolsList = d3.map(state.dataScorecard, d => d.School).keys().sort()
 }
-
-
-
-/* SCROLLAMA */
-let container = d3.select('#scroll');
-let graphic = d3.select('.scroll__graphic');
-let chart = d3.select('.chart');
-let text = d3.select('.scroll__text');
-let step = d3.selectAll('.step');
-
-// Initialize the scrollama
-let scroller = scrollama();
-
-
-function handleResize() {
-    setGlobalState({
-        figureHeight: window.innerHeight * 0.65,
-        figureWidth: window.innerWidth * 0.75,
-        /* figureMarginTop: (window.innerHeight - (window.innerHeight / 2)) / 2, */
-    })
-    scroller.resize();
-}
-
-
-function handleStepEnter(response) {
-    console.log(response);
-    // response = { element, direction, index }
-    // add color to current step only
-    step.classed("is-active", function (d, i) {
-        return i === response.index;
-    });
-    // update graphic based on step
-    chart.select("p").text(response.index + 1);
-}
-
-
-function setupStickyfill() {
-    d3.selectAll(".sticky").each(function () {
-        Stickyfill.add(this);
-    });
-}
-
 
 
 /* INIT */
 function init() {
     console.log("initializing");
-    setupStickyfill();
-    handleResize(); // force a resize to update DOM elements
-    // Initialize scrollama instance
-    scroller.setup({
-            step: "#scroll article .step",
-            offset: 0.75, // set the trigger to be halfway down screen
-            debug: true, // display the trigger offset for testing
-        })
-        .onStepEnter(handleStepEnter)
-    // set up resize event
-    window.addEventListener('resize', handleResize)
     map = new Map(state, setGlobalState);
     draw();
 }
@@ -111,3 +58,25 @@ function draw() {
     console.log("drawing");
     map.draw(state, setGlobalState);
 }
+
+/* UTILITY FUNCTIONS */
+function setGlobalState(nextState) {
+    state = {
+      ...state,
+      ...nextState,
+    };
+  }
+
+function findWidth() {
+    let element = document.querySelector("chart")
+    let rect = element.getBoundingClientRect();
+    setGlobalState({
+        width: Math.floor(rect.width * 0.9),
+        height: Math.floor(rect.height / 3.5),
+    });
+}
+
+
+window.addEventListener("resize", function() {
+    findWidth();
+})
