@@ -48,7 +48,6 @@ function setScales() {
 
 /* INIT */
 function init() {
-    console.log("initializing");
     map = new Map(state, setGlobalState);
     draw();
 }
@@ -57,7 +56,6 @@ function init() {
 
 /* DRAW */
 function draw() {
-    console.log("drawing");
     map.draw(state, setGlobalState);
 }
 
@@ -74,7 +72,7 @@ function findWidth() {
     let rect = element.getBoundingClientRect();
     setGlobalState({
         width: Math.floor(rect.width * 0.9),
-        height: Math.floor(rect.height / 3.5),
+        height: Math.floor(rect.height / 4),
     });
 }
 
@@ -82,6 +80,3 @@ function findWidth() {
 window.addEventListener("resize", function() {
     findWidth();
 })
-
-
-/* INTERSECTION OBSERVER */

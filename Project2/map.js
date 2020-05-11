@@ -1,33 +1,31 @@
 class Map {
     constructor(state, setGlobalState) {
-        console.log(state, "Now I am constructing");
 
     }
 
     draw(state, setGlobalState) {
-        console.log("Drawing", state)
+        // Color scale for operators
+        let colorScale = d3.scaleOrdinal().domain(state.operatorList).range(["#ff743d", "#2E86AB"]);
 
-        // SVG SETUP
+        let subtitle = d3.select("#chart1-subtitle");
 
-        let svg, title, colorScale;
-
-        colorScale = d3.scaleOrdinal().domain(state.operatorList).range(["#ff743d", "#2E86AB"]);
-
-        svg = d3
+        // Set up SVG canvas
+        let svg = d3
             .select("#chart1-visual")
             .append("svg")
             .attr("width", state.width)
             .attr("height", state.height)
 
-        title = d3
+        // Title of chart
+        let title = d3
             .select("#chart1-title")
-            .text("Tribal nations and schools in the United States")
+            .text("Tribal nation boundaries")
             .style("opacity", "0")
             .transition(d3.easeElastic)
-            .duration(200)
-            .style("opacity", "1")
-            .attr("fill", "#212121");
+            .duration(1200)
+            .style("opacity", "1");
 
+        // US map background
         svg
             .selectAll(".landUSA")
             .append("g")
@@ -42,12 +40,9 @@ class Map {
             .style("opacity", "1");
 
 
-        // SCROLLAMA SETUP
-
-        const scroller = scrollama();
-
+        // SET UP SCROLLAMA
+        let scroller = scrollama();
         let step = d3.selectAll(".narrative");
-
         scroller
             .setup({
                 step: ".narrative",
@@ -55,34 +50,17 @@ class Map {
                 offset: 0.9,
             })
             .onStepEnter(handleStepEnter)
-            .onStepExit(response => {
-                console.log(response);
-            })
 
 
         // SCROLLAMA STEP HANDLER
-
         function handleStepEnter(response) {
             step.classed("is-active");
 
-
             // STEP 1: TRIBAL LANDS
 
-            if (step.classed("is-active", true) && response.index === 0 && response.direction === "up") {
-                console.log("This is step 1 up!")
-
-                svg
-                    .selectAll(".landTribal")
-                    .style("opacity", "0.5")
-                    .transition(d3.easeElastic)
-                    .duration(300)
-                    .style("opacity", "0")
-                    .remove();
-            }
-
+            // Step 1 Down
             if (step.classed("is-active", true) && response.index === 0 && response.direction === "down") {
-                console.log("This is step 1 down!");
-
+                // Add tribal lands
                 svg
                     .selectAll(".landTribal")
                     .append("g")
@@ -95,15 +73,26 @@ class Map {
                     .transition(d3.easeElastic)
                     .duration(300)
                     .style("opacity", "1");
-
             }
-
 
 
             // STEP 2: SCHOOLS
 
+            // Step 2 Up
             if (step.classed("is-active", true) && response.index === 1 && response.direction === "up") {
-                console.log("This is step 2 up!")
+                // Change title
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal schools")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal nation boundaries");
+
+                // Lighten US map background
                 svg
                     .selectAll(".landUSA")
                     .attr("fill", "#212121")
@@ -111,6 +100,7 @@ class Map {
                     .duration(1200)
                     .attr("fill", "#ccc")
 
+                // Remove school dots
                 svg
                     .selectAll(".dot")
                     .style("opacity", "1")
@@ -121,6 +111,7 @@ class Map {
                     .style("opacity", "0")
                     .remove();
 
+                // Add tribal lands
                 svg
                     .selectAll(".landTribal")
                     .attr("fill", "#9a3106")
@@ -128,12 +119,24 @@ class Map {
                     .transition(d3.easeElastic)
                     .duration(1200)
                     .style("opacity", "1");
-
             }
 
+            // Step 2 Down
             if (step.classed("is-active", true) && response.index === 1 && response.direction === "down") {
-                console.log("This is step 2 down!");
+                // Change title
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal nation boundaries")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal schools")
+                    .style("opacity", "1");
 
+                // Darken US map background
                 svg
                     .selectAll(".landUSA")
                     .attr("fill", "#ccc")
@@ -141,6 +144,7 @@ class Map {
                     .duration(600)
                     .attr("fill", "#212121")
 
+                // Lighten tribal lands
                 svg
                     .selectAll(".landTribal")
                     .attr("fill", "white")
@@ -149,6 +153,7 @@ class Map {
                     .duration(600)
                     .style("opacity", "0.3");
 
+                // Add school dots and mouseover events
                 const dot = svg
                     .selectAll(".circle")
                     .data(state.dataSchools, d => d.School)
@@ -159,18 +164,26 @@ class Map {
                         .attr("class", "dot")
                         .attr("opacity", 0)
                         .attr("r", "4")
-                        .attr("style", "stroke: #212121; stroke-width: 0.5px")
+                        .attr("style", "stroke: grey; stroke-width: 0.5px")
                         .attr("fill", "white")
                         .attr("transform", d => {
                             const [x, y] = state.projectionUSA([+d.Longitude, +d.Latitude]);
                             return `translate(${x}, ${y})`;
                         })
                         .on('mouseover', function (d) {
-                            d3.select(this).attr("r", "6").attr("opacity", 1);
+                            d3.select(this)
+                                .attr("r", "8")
+                                .attr("opacity", 1)
+                                .attr("cursor", "pointer")
+                                .attr("style", "stroke: white; stroke-width: 1px; z-index: 100;");
                             d3.select(".tooltip").html("<p>" + d.School + "</p> <p>" + d.City + ", " + d.State + "</p>")
                         })
                         .on('mouseout', function (d) {
-                            d3.select(this).attr("r", "4").attr("opacity", 0.7);
+                            d3.select(this)
+                                .attr("r", "4")
+                                .attr("opacity", 0.7)
+                                .attr("cursor", "default")
+                                .attr("style", "stroke: grey; stroke-width: 1px; z-index: 0;");
                             d3.select(".tooltip").attr("opacity", 0);
                         }),
                         update => update,
@@ -181,29 +194,68 @@ class Map {
                         .transition(d3.easeElastic)
                         .delay(d => 25 * d.Latitude)
                         .attr("opacity", 0.7)
-                        .transition(d3.easeElastic)
-                        .delay(d => 25 * d.Latitude)
-                        .attr("opacity", 0.7)
                     );
-
             }
 
 
             // STEP 3: OPERATOR
 
+            // Step 3 Up
             if (step.classed("is-active", true) && response.index === 2 && response.direction === "up") {
-                console.log("This is step 3 up!")
+                // Change title
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal schools, color coded by operator")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal schools")
+                    .style("opacity", "1");
+
+                // Change subtitle
+                subtitle
+                    .attr("style", "display: none;")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0");
+
+                // Change school dot color to white
                 svg
                     .selectAll(".dot")
                     .attr("fill", d => colorScale(d['Operator']))
                     .transition(d3.easeElastic)
                     .delay(d => 5 * d.Latitude)
-                    .attr("fill", "white");
-
+                    .attr("fill", "white")
             }
 
+            // Step 3 Down
             if (step.classed("is-active", true) && response.index === 2 && response.direction === "down") {
-                console.log("This is step 3 down!")
+                // Change title
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal schools")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal schools, color coded by operator")
+                    .style("opacity", "1");
+
+                // Change subtitle
+                subtitle
+                    .attr("style", "display: visible;")
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "1");
+
+                // Change school dot color to scale by operator
                 const dot = svg
                     .selectAll(".dot")
                     .call(selection =>
@@ -215,12 +267,6 @@ class Map {
                     );
             }
         }
-
-        window.addEventListener("resize", scroller.resize);
-
-
-
-
     }
 }
 
