@@ -196,7 +196,7 @@ article {
 .visual {
     margin: 5%;
     position: sticky;
-    top: 15%;
+    top: 10%;
 }
 
 .visual-title {
@@ -222,10 +222,10 @@ article {
 #chart2-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+    column-gap: 5%;
 }
 
-.chart2-visual {
-    padding: 5px;
+#chart2-left-title, #chart2-right-title {
+    margin: 0px 0px 15px 0px;
 }
 

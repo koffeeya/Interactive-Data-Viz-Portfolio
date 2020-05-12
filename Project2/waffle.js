@@ -8,7 +8,7 @@ class Waffle {
         // CONSTANTS
 
         // Dimensions of the SVG canvas
-        let canvasWidth = state.width / 2
+        let canvasWidth = state.width / 2.1
         let canvasHeight = state.height * 0.8
 
         // Number of items in each waffle, and the cols and rows
@@ -21,8 +21,8 @@ class Waffle {
         let waffleHeight = canvasHeight / numRows
 
         // Color scales
-        let waffleMathColor = d3.scaleLinear().domain([0,1]).range(["#b5e5f9", "#b5e5f9"])
-        let waffleELAColor = d3.scaleLinear().domain([0,1]).range(["#ffd99b", "#EDAE49"])
+        let waffleMathColor = d3.scaleLinear().domain([0,1]).range(["#cccccc", "#2E86AB"])
+        let waffleELAColor = d3.scaleLinear().domain([0,1]).range(["#cccccc", "#EDAE49"])
 
         // Set up math SVG canvas
         let waffleLeft = d3
@@ -60,11 +60,15 @@ class Waffle {
             .attr("rx", (d, i) => {
                 return "0px"
             })
-            .style("fill", d => waffleMathColor(d.PercentMeet))
+            .style("fill", d => waffleMathColor(d.majority))
             .attr("opacity", 0)
             .transition(d3.easeElastic)
             .duration(4500)
             .attr("opacity", 1);
+
+        let leftTitle = d3
+            .select("#chart2-left-title")
+            .text("Tribal schools where >50% of students are proficient in math");
 
         waffleRight
             .selectAll(".rect")
@@ -84,11 +88,15 @@ class Waffle {
             .attr("rx", (d, i) => {
                 return "0px"
             })
-            .style("fill", d => waffleELAColor(d.PercentMeet))
+            .style("fill", d => waffleELAColor(d.majority))
             .attr("opacity", 0)
             .transition(d3.easeElastic)
             .duration(4500)
             .attr("opacity", 1);
+
+        let rightTitle = d3
+            .select("#chart2-right-title")
+            .text("Tribal schools where >50% of students are proficient in reading");
 
     }
 }
