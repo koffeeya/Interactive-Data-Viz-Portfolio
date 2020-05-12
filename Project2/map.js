@@ -4,6 +4,7 @@ class Map {
     }
 
     draw(state, setGlobalState) {
+
         // Color scale for operators
         let colorScale = d3.scaleOrdinal().domain(state.operatorList).range(["#ff743d", "#2E86AB"]);
 

@@ -107,16 +107,16 @@ button:disabled {
 
 #intro-subtitle {
     font-family: 'IBM Plex Serif';
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 28px;
     color: white;
-    padding: 5% 0% 5% 0%;
+    padding: 5% 0% 0% 0%;
 }
 
 #intro-text {
     font-size: 16px;
-    color: #ff743d;
+    color: #ffa17c;
     padding: 3% 0% 0% 0%;
 }
 
@@ -210,11 +210,22 @@ article {
 
 #chart1-subtitle {
     text-align: center;
-    margin: 5px;
     font-family: 'IBM Plex Sans';
     font-size: 12px;
     color: rgb(160, 158, 158);
     opacity: 0;
+    margin: 5px;
+    position: sticky;
+    top: 0%;
 }
 
+#chart2-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}
+
+.chart2-visual {
+    padding: 5px;
+}
 
