@@ -164,8 +164,16 @@ button:disabled {
     column-gap: 10px;
 }
 
-article {
-    background-color: rgb(236, 236, 236);
+#part1-article {
+    background-color: #9a3106;
+}
+
+#part2-article {
+    background-color: #2E86AB;
+}
+
+#part3-article {
+    background-color: #EDAE49;
 }
 
 .narrative {
