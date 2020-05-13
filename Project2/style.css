@@ -76,7 +76,6 @@ button:disabled {
     margin: 0;
     color: white;
     text-align: center;
-    height: 100vh;
 }
 
 #intro-image-credit {
@@ -88,7 +87,8 @@ button:disabled {
     font-family: 'IBM Plex Sans';
     color: #ffad8c;
     background-color: #9a3106;
-    padding: 0% 25% 5% 25%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 #intro-title {
@@ -114,29 +114,60 @@ button:disabled {
     padding: 3% 0% 0% 0%;
 }
 
-#spacer {
-    padding: 4%;
+@keyframes arrow-point {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#intro-arrow {
+    font-size: 40px;
+    text-align: center;
+    animation-name: arrow-point;
+    animation-duration: 4s;
+    padding: 5% 0% 10% 0%;
+}
+
+#intro-arrow>a {
+    color: #ff743d;
+    text-decoration: none;
 }
 
 
 /* SECTIONS */
 
 #content-wrapper {
-    margin: 10% 10%;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    margin-top: 5%;
 }
 
 .section-title {
-    margin: 10% 0% 1% 0%;
+    z-index: 100;
     padding: 1%;
     text-align: center;
     position: sticky;
-    z-index: 100;
     top: 0%;
     background-color: white;
     border-bottom: 2px solid lightgrey;
     font-family: 'IBM Plex Sans';
     font-size: 35px;
     font-weight: 700;
+}
+
+.section {
+    margin-top: 10%;
 }
 
 #part1-title {
@@ -224,19 +255,29 @@ button:disabled {
     color: rgb(160, 158, 158);
     opacity: 0;
     margin: 5px;
-    position: sticky;
-    top: 0%;
     transform: translateY(35px)
 }
 
 
 /* CHART 2 */
 
+.part2-point {
+    padding: 30px;
+    color: white;
+}
+
 #chart2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 6%;
-    margin: 1% 5%;
+    padding: 2% 0% 0% 0%;
+    
+}
+
+#chart2-wrapper {
+    position: sticky;
+    top: 0%;
+    padding: 2% 0% 0% 0%;
 }
 
 #chart2-waffles {
@@ -261,9 +302,10 @@ button:disabled {
     font-family: 'IBM Plex Sans';
     font-weight: 900;
     padding: 5px;
-    background-color: white;
+    background-color: #b5e5f9;
     color: #212121;
     border: 2px solid #2E86AB;
+    width: 100%;
 }
 
 #chart2-left-title {
@@ -278,11 +320,6 @@ button:disabled {
     color: #EDAE49;
     margin: 0% 0% 2% 0%;
     font-size: 22px;
-}
-
-#point4 {
-    padding: 5%;
-    margin: 5%
 }
 
 #chart2-left-subtitle, #chart2-right-subtitle {

@@ -40,6 +40,8 @@ let state = {
     //
     selectedPop: "All Students",
     selectedCount: 137,
+    //
+    intro: 0,
 }
 
 /* LOAD DATA */

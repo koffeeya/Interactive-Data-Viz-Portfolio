@@ -69,7 +69,7 @@ class Map {
 
         function checkState() {
             if (state.dataLoadStatus == "loaded") {
-                content.attr("style", "opacity:1;")
+                content.attr("style", "display:none;")
             } else {
                 setUpMap();
                 content.attr("style", "opacity:1;")
