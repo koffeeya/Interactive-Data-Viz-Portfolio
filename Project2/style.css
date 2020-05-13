@@ -70,12 +70,6 @@ button:disabled {
 
 /* INTRODUCTION */
 
-.tooltip {
-    font-family: 'IBM Plex Sans';
-    color: black;
-    line-height: 10px;
-}
-
 #title-wrapper {
     background-color: #9a3106;
     padding: 0;
@@ -141,7 +135,7 @@ button:disabled {
     background-color: white;
     border-bottom: 2px solid lightgrey;
     font-family: 'IBM Plex Sans';
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 700;
 }
 
@@ -178,15 +172,15 @@ button:disabled {
 
 .narrative {
     padding: 5%;
-    margin: 75% 0% 150% 0%;
+    margin: 75% 0% 200% 0%;
 }
 
 .first-point {
-    margin: 50% 0% 150% 0%;
+    margin: 100% 0% 200% 0%;
 }
 
 .part1 {
-    background-color:#9a3106;
+    background-color: #9a3106;
     color: white;
     padding: 30px;
 }
@@ -202,7 +196,7 @@ button:disabled {
 }
 
 .visual {
-    margin: 5%;
+    margin: 0% 1% 0% 5%;
     position: sticky;
     top: 10%;
 }
@@ -210,10 +204,17 @@ button:disabled {
 .visual-title {
     text-align: center;
     font-size: 18px;
-    margin: 0;
+    margin: 0px;
     font-family: 'IBM Plex Sans';
     font-weight: 900;
     color: rgb(136, 134, 134);
+}
+
+
+/* CHART 1 */
+
+#chart1-title {
+    transform: translateY(35px)
 }
 
 #chart1-subtitle {
@@ -225,15 +226,67 @@ button:disabled {
     margin: 5px;
     position: sticky;
     top: 0%;
+    transform: translateY(35px)
 }
 
-#chart2-wrapper {
+
+/* CHART 2 */
+
+#chart2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 5%;
+    column-gap: 6%;
+    margin: 1% 5%;
 }
 
-#chart2-left-title, #chart2-right-title {
-    margin: 0px 0px 15px 0px;
+#chart2-waffles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6%;
+    margin: 15px 0px 0px 0px;
 }
 
+#chart2-filter {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: #212121;
+    font-family: 'IBM Plex Serif';
+    font-weight: 900;
+    font-size: 18px;
+    color: #212121;
+}
+
+#pop-dropdown {
+    font-size: 16px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 900;
+    padding: 5px;
+    background-color: white;
+    color: #212121;
+    border: 2px solid #2E86AB;
+}
+
+#chart2-left-title {
+    text-align: left;
+    color: #2E86AB;
+    margin: 0% 0% 2% 0%;
+    font-size: 22px;
+}
+
+#chart2-right-title {
+    text-align: left;
+    color: #EDAE49;
+    margin: 0% 0% 2% 0%;
+    font-size: 22px;
+}
+
+#point4 {
+    padding: 5%;
+    margin: 5%
+}
+
+#chart2-left-subtitle, #chart2-right-subtitle {
+    text-align: left;
+    font-size: 14px;
+    padding: 0% 0% 5% 0%;
+}

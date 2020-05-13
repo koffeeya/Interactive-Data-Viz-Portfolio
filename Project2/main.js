@@ -6,25 +6,40 @@ import {
     Waffle
 } from "./waffle.js"
 
-let map, waffle
+let map, waffle;
 
 /* APPLICATION STATE */
 
 let state = {
+    // Dataset
     geoUSA: null,
     geoTribal: null,
     dataSchools: [],
     dataScorecard: [],
-    allMath: [],
-    allELA: [],
     schoolsList: null,
     operatorList: null,
+    populationList: null,
     projectionUSA: null,
     pathUSA: null,
     height: 300,
     width: 300,
-    mapRatio: 0,
-    hover: null,
+    // Math scorecard populations
+    allMath: [],
+    mathMale: [],
+    mathFemale: [],
+    mathEng: [],
+    mathEcon: [],
+    mathDis: [],
+    // ELA scorecard populations
+    allELA: [],
+    elaMale: [],
+    elaFemale: [],
+    elaEng: [],
+    elaEcon: [],
+    elaDis: [],
+    //
+    selectedPop: "All Students",
+    selectedCount: 137,
 }
 
 /* LOAD DATA */
@@ -37,7 +52,9 @@ Promise.all([
     state.geoUSA = usaData;
     state.geoTribal = tribalData;
     state.dataSchools = schoolsData;
-    state.dataScorecard = scorecardsData.flat();
+    state.dataScorecard = scorecardsData.flat()
+        .sort((a, b) => { return d3.descending(a.PercentMeet, b.PercentMeet) })
+        .sort((a, b) => { return d3.descending(b.Population, a.Population) });
     findWidth();
     setScales();
     init();
@@ -48,20 +65,29 @@ function setScales() {
     state.pathUSA = d3.geoPath().projection(state.projectionUSA);
     state.schoolsList = d3.map(state.dataSchools, d => d.School).keys();
     state.operatorList = d3.map(state.dataSchools, d => d.Operator).keys();
+    state.populationList = d3.map(state.dataScorecard, d => d.Population).keys();
 
     // Math scores for all student population
     state.allMath = state.dataScorecard.filter(d => {
         return d.Subject === "Math" && d.Population === "All Students"
-    }).sort((a, b) => {
-        return d3.descending(a.PercentBelow, b.PercentBelow)
-    });
-    
+    })
+
     // ELA scores for all student population
-    state.allELA = state.dataScorecard.filter(d => {
-        return d.Subject === "ELA" && d.Population === "All Students"
-    }).sort((a, b) => {
-        return d3.descending(a.PercentBelow, b.PercentBelow)
-    });
+    state.allELA = state.dataScorecard.filter(d => { return d.Subject === "ELA" && d.Population === "All Students" })
+
+    // Math scores by population
+    state.mathMale = state.dataScorecard.filter(d => { return d.Subject === 'Math' && d.Population === 'Male' });
+    state.mathFemale = state.dataScorecard.filter(d => { return d.Subject === 'Math' && d.Population === 'Female' });
+    state.mathEng = state.dataScorecard.filter(d => { return d.Subject === 'Math' && d.Population === 'English Learners' });
+    state.mathEcon = state.dataScorecard.filter(d => { return d.Subject === 'Math' && d.Population === 'Economic Disadvantaged' });
+    state.mathDis = state.dataScorecard.filter(d => { return d.Subject === 'Math' && d.Population === 'Students with Disabilities' });
+
+    // Math scores by population
+    state.elaMale = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'Male' });
+    state.elaFemale = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'Female' });
+    state.elaEng = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'English Learners' });
+    state.elaEcon = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'Economic Disadvantaged' });
+    state.elaDis = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'Students with Disabilities' });
 }
 
 /* INIT */
@@ -70,7 +96,6 @@ function init() {
     waffle = new Waffle(state, setGlobalState);
     draw();
 }
-
 
 /* DRAW */
 function draw() {
@@ -91,6 +116,6 @@ function findWidth() {
     let rect = element.getBoundingClientRect();
     setGlobalState({
         width: Math.floor(rect.width * 0.9),
-        height: Math.floor(rect.height / 4),
+        height: Math.floor(rect.height / 5),
     });
 }
