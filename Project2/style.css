@@ -269,6 +269,11 @@ button:disabled {
     margin: 5px;
 }
 
+#chart1-tooltip {
+    transform: translateY(-10px);
+}
+
+
 /* CHART 2 */
 
 #point5 {
