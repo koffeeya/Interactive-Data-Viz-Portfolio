@@ -354,3 +354,11 @@ button:disabled {
 #part2-article {
     padding-bottom: 50%;
 }
+
+
+#chart3-tooltip {
+    position: absolute;
+    z-index: 10000;
+    background-color: rgb(238, 237, 237);
+    font-family: 'IBM Plex Sans';
+}

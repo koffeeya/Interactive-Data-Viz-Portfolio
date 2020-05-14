@@ -6,17 +6,16 @@ import {
     Waffle
 } from "./waffle.js"
 import {
-    Scatter
-} from "./scatter.js"
+    Bar
+} from "./bar.js"
 
-let map, waffle, scatter;
+let map, waffle, bar;
 
 
 /* APPLICATION STATE */
 let state = {
     // Dataset
     geoUSA: null,
-    dataTribal: [],
     dataSchools: [],
     dataScorecard: [],
     schoolsList: null,
@@ -50,12 +49,10 @@ let state = {
 /* LOAD DATA */
 Promise.all([
     d3.json("./data/usState.json"),
-    d3.csv("./data/tribalLands.csv", d3.autoType),
     d3.csv("./data/schools.csv", d3.autoType),
     d3.csv("./data/scorecards.csv", d3.autoType),
-]).then(([usaData, tribalData, schoolsData, scorecardsData, math]) => {
+]).then(([usaData, schoolsData, scorecardsData, math]) => {
     state.geoUSA = usaData;
-    state.dataTribal = tribalData.flat();
     state.dataSchools = schoolsData;
     state.dataScorecard = scorecardsData.flat()
         .sort((a, b) => { return d3.descending(a.PercentMeet, b.PercentMeet) })
@@ -104,7 +101,7 @@ function setScales() {
 function init() {
     map = new Map(state, setGlobalState);
     waffle = new Waffle(state, setGlobalState);
-    scatter = new Scatter(state, setGlobalState);
+    bar = new Bar(state, setGlobalState);
     draw();
 }
 
@@ -113,7 +110,7 @@ function init() {
 function draw() {
     map.draw(state, setGlobalState);
     waffle.draw(state, setGlobalState);
-    scatter.draw(state, setGlobalState);
+    bar.draw(state, setGlobalState);
 }
 
 
