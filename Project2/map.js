@@ -106,7 +106,7 @@ class Map {
             .setup({
                 step: ".part1",
                 debug: false,
-                offset: 0.2,
+                offset: 0.6,
             })
             .onStepEnter(handleStepEnter)
 

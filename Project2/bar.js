@@ -5,8 +5,8 @@ class Bar {
     draw(state, setGlobalState) {
 
         // Dimensions of the SVG canvas
-        let canvasWidth = state.width * 0.9
-        let canvasHeight = state.height * 0.8
+        let canvasWidth = state.width * 0.6
+        let canvasHeight = state.height * 1.2
 
         let filter = {
             math: state.allMath,
@@ -41,7 +41,7 @@ class Bar {
 
         function createBar(canvas, data, xLabel, titleID, newTitle) {
 
-            data = data.sort((a, b) => {
+            data.sort((a, b) => {
                     return d3.descending(a.PercentMeet, b.PercentMeet)
                 })
                 .sort((a, b) => {
@@ -89,7 +89,7 @@ class Bar {
                         .style("opacity", "1")
 
                     d3.select("#chart3-tooltip")
-                        .text(d.BusDistance)
+                        .html("The average bus at <b>" + d.School + "</b> in " + d.City + ", " + d.State +" travels a distance of <b>" + d.BusDistance + " miles</b> per day to get students to school.")
                 })
                 .transition()
                 .delay(d => d.Index)
