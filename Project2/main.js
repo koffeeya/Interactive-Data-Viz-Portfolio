@@ -5,11 +5,14 @@ import {
 import {
     Waffle
 } from "./waffle.js"
+import {
+    Scatter
+} from "./scatter.js"
 
-let map, waffle;
+let map, waffle, scatter;
+
 
 /* APPLICATION STATE */
-
 let state = {
     // Dataset
     geoUSA: null,
@@ -44,6 +47,7 @@ let state = {
     intro: 0,
 }
 
+
 /* LOAD DATA */
 Promise.all([
     d3.json("./data/usState.json"),
@@ -62,6 +66,8 @@ Promise.all([
     init();
 });
 
+
+// Create scales and filtered datasets
 function setScales() {
     state.projectionUSA = d3.geoAlbersUsa().fitSize([state.width, state.height], state.geoUSA);
     state.pathUSA = d3.geoPath().projection(state.projectionUSA);
@@ -92,18 +98,23 @@ function setScales() {
     state.elaDis = state.dataScorecard.filter(d => { return d.Subject === 'ELA' && d.Population === 'Students with Disabilities' });
 }
 
+
 /* INIT */
 function init() {
     map = new Map(state, setGlobalState);
     waffle = new Waffle(state, setGlobalState);
+    scatter = new Scatter(state, setGlobalState);
     draw();
 }
+
 
 /* DRAW */
 function draw() {
     map.draw(state, setGlobalState);
     waffle.draw(state, setGlobalState);
+    scatter.draw(state, setGlobalState);
 }
+
 
 /* UTILITY FUNCTIONS */
 function setGlobalState(nextState) {

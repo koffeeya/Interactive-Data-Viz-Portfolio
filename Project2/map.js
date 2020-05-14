@@ -1,7 +1,6 @@
 class Map {
     constructor(state, setGlobalState) {
 
-
     }
 
     draw(state, setGlobalState) {
@@ -10,8 +9,6 @@ class Map {
         let colorScale = d3.scaleOrdinal().domain(state.operatorList).range(["#ff743d", "#2E86AB"]);
 
         let subtitle = d3.select("#chart1-subtitle");
-
-        let content = d3.select("#content-wrapper");
 
         let svg = d3
             .select("#chart1-visual")
@@ -33,7 +30,7 @@ class Map {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        checkState();
+    
 
         function setUpMap() {
             // US map background
@@ -65,17 +62,11 @@ class Map {
 
             state.dataLoadStatus = "loaded";
 
+            d3.select("#visibility-toggle").style("display", "visible");
+
         }
 
-        function checkState() {
-            if (state.dataLoadStatus == "loaded") {
-                content.attr("style", "display:none;")
-            } else {
-                setUpMap();
-                content.attr("style", "opacity:1;")
-                console.log("done!");
-            }
-        }
+        setUpMap();
 
 
 
@@ -86,7 +77,7 @@ class Map {
             .setup({
                 step: ".part1",
                 debug: false,
-                offset: 0.9,
+                offset: 0.5,
             })
             .onStepEnter(handleStepEnter)
 

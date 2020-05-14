@@ -14,6 +14,7 @@ Off-Black: #212121
 body {
     font-family: 'IBM Plex Serif', 'IBM Plex Sans', sans-serif;
     margin: 0%;
+    color: #212121;
 }
 
 h1 {
@@ -37,6 +38,8 @@ h3 {
 p {
     font-family: 'IBM Plex Serif';
     font-size: 14px;
+    padding: 0px;
+    margin: 0px;
 }
 
 img {
@@ -135,13 +138,15 @@ button:disabled {
     font-size: 40px;
     text-align: center;
     animation-name: arrow-point;
-    animation-duration: 4s;
+    animation-duration: 8s;
     padding: 5% 0% 10% 0%;
-}
-
-#intro-arrow>a {
     color: #ff743d;
     text-decoration: none;
+}
+
+#intro-arrow:hover {
+    color: white;
+    cursor: pointer;
 }
 
 
@@ -261,9 +266,9 @@ button:disabled {
 
 /* CHART 2 */
 
-.part2-point {
-    padding: 30px;
+#point5 {
     color: white;
+    padding: 30px;
 }
 
 #chart2 {
@@ -283,26 +288,25 @@ button:disabled {
 #chart2-waffles {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     column-gap: 6%;
+    row-gap: 6%;
     margin: 15px 0px 0px 0px;
 }
 
 #chart2-filter {
-    display: grid;
-    grid-template-columns: 1fr;
     color: #212121;
     font-family: 'IBM Plex Serif';
     font-weight: 900;
-    font-size: 18px;
-    color: #212121;
+    font-size: 12px;
+    margin: 5% 0% 0% 0%;
 }
 
 #pop-dropdown {
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'IBM Plex Sans';
     font-weight: 900;
     padding: 5px;
-    background-color: #b5e5f9;
     color: #212121;
     border: 2px solid #2E86AB;
     width: 100%;
@@ -324,6 +328,27 @@ button:disabled {
 
 #chart2-left-subtitle, #chart2-right-subtitle {
     text-align: left;
-    font-size: 14px;
+    font-size: 11px;
     padding: 0% 0% 5% 0%;
+}
+
+#chart2-tooltip {
+    font-family: 'IBM Plex Sans';
+    line-height: 16px;
+    margin: 5% 0%;
+    padding: 2%;
+    position: sticky;
+    top: 80%;
+    background-color: rgb(238, 237, 237);
+}
+
+#tooltip-small {
+    font-size: 10px;
+    color: grey;
+    padding: 0px;
+    margin: 0px;
+}
+
+#part2-article {
+    padding-bottom: 30%;
 }
