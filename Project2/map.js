@@ -139,7 +139,7 @@ class Map {
 
                 title = d3
                     .select("#chart1-title")
-                    .text("Tribal schools, color coded by operator")
+                    .text("Tribal schools, by operator")
                     .style("opacity", "1")
                     .transition(d3.easeElastic)
                     .duration(100)
@@ -184,7 +184,7 @@ class Map {
                     .style("opacity", "0")
                     .transition(d3.easeElastic)
                     .duration(100)
-                    .text("Tribal schools, color coded by operator")
+                    .text("Tribal schools, by operator")
                     .style("opacity", "1");
 
                 // Change subtitle
@@ -210,14 +210,14 @@ class Map {
             if (step.classed("is-active", true) && response.index === 2 && response.direction === "up") {
                 title = d3
                     .select("#chart1-title")
-                    .text("Tribal schools, color coded by average county per capita income")
+                    .text("Tribal schools, by average county per capita income")
                     .style("opacity", "1")
                     .transition(d3.easeElastic)
                     .duration(100)
                     .style("opacity", "0")
                     .transition(d3.easeElastic)
                     .duration(100)
-                    .text("Tribal schools, color coded by operator")
+                    .text("Tribal schools, by operator")
                     .style("opacity", "1");
 
                 subtitle
@@ -282,14 +282,14 @@ class Map {
 
                 title = d3
                     .select("#chart1-title")
-                    .text("Tribal schools, color coded by operator")
+                    .text("Tribal schools, by operator")
                     .style("opacity", "1")
                     .transition(d3.easeElastic)
                     .duration(100)
                     .style("opacity", "0")
                     .transition(d3.easeElastic)
                     .duration(100)
-                    .text("Tribal schools, color coded by average county per capita income")
+                    .text("Tribal schools, by average county per capita income")
                     .style("opacity", "1");
 
                 subtitle
