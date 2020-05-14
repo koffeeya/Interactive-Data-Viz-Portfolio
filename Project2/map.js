@@ -7,8 +7,10 @@ class Map {
 
         // Color scale for operators
         let colorScale = d3.scaleOrdinal().domain(state.operatorList).range(["#ff743d", "#2E86AB"]);
+        let incomeScale = d3.scaleOrdinal().domain(["above", "below"]).range(["#EDAE49", "#cccccc"]);
 
         let subtitle = d3.select("#chart1-subtitle");
+        let subtitle2 = d3.select("#chart1-subtitle-2")
 
         let svg = d3
             .select("#chart1-visual")
@@ -106,7 +108,7 @@ class Map {
             .setup({
                 step: ".part1",
                 debug: false,
-                offset: 0.6,
+                offset: 0.4,
             })
             .onStepEnter(handleStepEnter)
 
@@ -154,6 +156,13 @@ class Map {
                     .duration(100)
                     .style("opacity", "0");
 
+                 subtitle2
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "0")
+                    .attr("display", "none");
+
                 // Change school dot color to white
                 svg
                     .selectAll(".dot")
@@ -194,6 +203,146 @@ class Map {
                         .transition(d3.easeElastic)
                         .delay(d => 10 * d.Latitude)
                         .attr("fill", d => colorScale(d['Operator']))
+                    );
+            }
+
+            // STEP 3 UP
+            if (step.classed("is-active", true) && response.index === 2 && response.direction === "up") {
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal schools, color coded by average county per capita income")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal schools, color coded by operator")
+                    .style("opacity", "1");
+
+                subtitle
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "1")
+                    .attr("display", "visible");
+
+                subtitle2
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "0")
+                    .attr("display", "none");
+
+                    const dot = svg
+                    .selectAll(".dot")
+                    .on('mouseover', function (d) {
+                        // dot
+                        d3.select(this)
+                            .attr("r", "8")
+                            .attr("opacity", 1)
+                            .attr("cursor", "pointer")
+                            .attr("style", "stroke: white; stroke-width: 1px; z-index: 100;");
+                        // tooltip
+                        d3.select("#chart1-tooltip")
+                            .style("opacity", 0)
+                            .transition()
+                            .duration(200)
+                            .text(d.School + " " + " | " + d.City + ", " + d.State)
+                            .style("opacity", .9);
+                    })
+                    .on('mouseout', function (d) {
+                        // dot
+                        d3.select(this)
+                            .attr("r", "4")
+                            .attr("opacity", 1)
+                            .attr("cursor", "default")
+                            .attr("style", "stroke: grey; stroke-width: 1px; z-index: 0;")
+                        // tooltip
+                        d3.select("#chart1-tooltip")
+                            .style("opacity", 1)
+                            .transition()
+                            .duration(50)
+                            .style("opacity", 0);
+                    })
+                    .call(selection =>
+                        selection
+                        .attr("fill", "white")
+                        .transition(d3.easeElastic)
+                        .delay(d => 10 * d.Latitude)
+                        .attr("fill", d => colorScale(d['Operator']))
+                    );
+            }
+
+
+
+            // STEP 3 DOWN
+
+            if (step.classed("is-active", true) && response.index === 2 && response.direction === "down") {
+
+                title = d3
+                    .select("#chart1-title")
+                    .text("Tribal schools, color coded by operator")
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(100)
+                    .text("Tribal schools, color coded by average county per capita income")
+                    .style("opacity", "1");
+
+                subtitle
+                    .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "0")
+                    .attr("display", "none");
+
+                subtitle2
+                    .style("opacity", "0")
+                    .transition(d3.easeElastic)
+                    .duration(300)
+                    .style("opacity", "1")
+                    .attr("display", "visible");
+
+                const dot = svg
+                    .selectAll(".dot")
+                    .on('mouseover', function (d) {
+                        // dot
+                        d3.select(this)
+                            .attr("r", "8")
+                            .attr("opacity", 1)
+                            .attr("cursor", "pointer")
+                            .attr("style", "stroke: white; stroke-width: 1px; z-index: 100;");
+                        // tooltip
+                        d3.select("#chart1-tooltip")
+                            .style("opacity", 0)
+                            .transition()
+                            .duration(200)
+                            .text(d.School + " " + " | " + d.City + ", " + d.State + " | $" + d.Income + " per capita income for " + d.County + " county")
+                            .style("opacity", .9);
+                    })
+                    .on('mouseout', function (d) {
+                        // dot
+                        d3.select(this)
+                            .attr("r", "4")
+                            .attr("opacity", 1)
+                            .attr("cursor", "default")
+                            .attr("style", "stroke: grey; stroke-width: 1px; z-index: 0;")
+                        // tooltip
+                        d3.select("#chart1-tooltip")
+                            .style("opacity", 1)
+                            .transition()
+                            .duration(50)
+                            .style("opacity", 0);
+                    })
+                    .call(selection =>
+                        selection
+                        .attr("fill", "white")
+                        .transition(d3.easeElastic)
+                        .delay(d => 10 * d.Latitude)
+                        .attr("fill", d => incomeScale(d['category']))
                     );
             }
         }
