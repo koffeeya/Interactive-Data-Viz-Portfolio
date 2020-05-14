@@ -155,7 +155,6 @@ button:disabled {
 #content-wrapper {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    margin-top: 5%;
 }
 
 .section-title {
@@ -208,11 +207,7 @@ button:disabled {
 
 .narrative {
     padding: 5%;
-    margin: 75% 0% 200% 0%;
-}
-
-.first-point {
-    margin: 100% 0% 200% 0%;
+    margin: 50% 0% 100% 0%;
 }
 
 .part1 {
@@ -246,11 +241,18 @@ button:disabled {
     color: rgb(136, 134, 134);
 }
 
+.tooltip {
+    text-align: center;
+    font-family: 'IBM Plex Sans';
+    font-weight: 900;
+    padding-top: 1%;
+}
+
 
 /* CHART 1 */
 
 #chart1-title {
-    transform: translateY(35px)
+    padding: 5% 0% 0% 0%;
 }
 
 #chart1-subtitle {
@@ -260,7 +262,6 @@ button:disabled {
     color: rgb(160, 158, 158);
     opacity: 0;
     margin: 5px;
-    transform: translateY(35px)
 }
 
 
@@ -275,6 +276,7 @@ button:disabled {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 6%;
+    row-gap: 2%;
     padding: 2% 0% 0% 0%;
     
 }
@@ -350,5 +352,5 @@ button:disabled {
 }
 
 #part2-article {
-    padding-bottom: 30%;
+    padding-bottom: 50%;
 }

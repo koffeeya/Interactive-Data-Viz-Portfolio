@@ -16,7 +16,7 @@ let map, waffle, scatter;
 let state = {
     // Dataset
     geoUSA: null,
-    geoTribal: null,
+    dataTribal: [],
     dataSchools: [],
     dataScorecard: [],
     schoolsList: null,
@@ -47,16 +47,15 @@ let state = {
     intro: 0,
 }
 
-
 /* LOAD DATA */
 Promise.all([
     d3.json("./data/usState.json"),
-    d3.json("./data/tribalBoundaries.geo.json"),
+    d3.csv("./data/tribalLands.csv", d3.autoType),
     d3.csv("./data/schools.csv", d3.autoType),
     d3.csv("./data/scorecards.csv", d3.autoType),
 ]).then(([usaData, tribalData, schoolsData, scorecardsData, math]) => {
     state.geoUSA = usaData;
-    state.geoTribal = tribalData;
+    state.dataTribal = tribalData.flat();
     state.dataSchools = schoolsData;
     state.dataScorecard = scorecardsData.flat()
         .sort((a, b) => { return d3.descending(a.PercentMeet, b.PercentMeet) })
@@ -65,6 +64,8 @@ Promise.all([
     setScales();
     init();
 });
+
+
 
 
 // Create scales and filtered datasets

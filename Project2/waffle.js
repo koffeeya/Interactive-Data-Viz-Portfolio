@@ -6,11 +6,13 @@ class Waffle {
 
     draw(state, setGlobalState) {
 
+        console.log(state.geoTribal);
+
         /* CONSTANTS */
 
         // Dimensions of the SVG canvas
         let canvasWidth = state.width / 2.1
-        let canvasHeight = state.height * 0.65
+        let canvasHeight = state.height * 0.8
 
         // Number of items in each waffle, and the cols and rows
         let numItems = state.allMath.length
@@ -108,8 +110,8 @@ class Waffle {
                 .data(data, d => key)
                 .enter()
                 .append("rect")
-                .attr("width", waffleWidth * 0.9)
-                .attr("height", waffleHeight * 0.9)
+                .attr("width", waffleWidth * 0.95)
+                .attr("height", waffleHeight * 0.95)
                 .attr("x", (d, i) => {
                     let rowIndex = Math.floor(i / numRows)
                     return (rowIndex * waffleWidth)
@@ -124,7 +126,8 @@ class Waffle {
                 .on("mouseover", function (d) {
                     d3.select(this)
                         .style("opacity", "0.5")
-
+                        .style("cursor", "pointer")
+                        
                     d3.select("#chart2-tooltip")
                         .style("opacity", 1)
                         .html("<b>" + d.School + "</b><br><br><b>" + Math.floor(d.PercentMeet * 100) + "% </b>of students in the selected population <b>(" + d.Population + ")</b> are proficient in <b>" + d.Subject + "</b><br><br><p id='tooltip-small'>Located in " + d.City + ", " + d.State + " | " + d.N + " students tested (" + Math.floor(d.ParticipationRate * 100) + "% of population)</p>")
