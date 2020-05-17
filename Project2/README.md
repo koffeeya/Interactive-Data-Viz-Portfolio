@@ -29,6 +29,14 @@ I analyzed multiple data sources for this project.
 
 ### SKETCHES
 
+| Image | Image          |
+|--------|----------------|
+| Sketch 1   | ![](Project2/assets/sketch1.jpg) |
+| Sketch 2   | ![](Project2/assets/sketch2.jpg) |
+| Sketch 3   | ![](Project2/assets/sketch3.jpg) |
+
+
+
 <br />
 
 | **Story Points**                                                                       | **Storyboard**                                                                                       |
