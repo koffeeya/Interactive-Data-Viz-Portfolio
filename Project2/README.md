@@ -27,9 +27,19 @@ I analyzed multiple data sources for this project.
 
 ### Final Clean Datasets
 
-1. [`schools.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/schools.csv)
+1. [`schools.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/schools.csv): School, City, State, Operator, Address, Latitude, Longitude, County, Income
 
-2. [`scorecards.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/scorecards.csv)
+2. [`scorecards.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/scorecards.csv): School, City, State, Subject, Population, and calculated fields:
+
++ PercentMeet: percent of students that were proficient in the subject
++ PercentBelow: percent of students below proficient in the subject
++ N: total number of students tested
++ NumProf: number of students proficient in the subject
++ NumBelow: number of students below proficient in the subject
++ ParticipationRate: percent of student population tested
++ BusDistance: average per day miles that a school bus travels to get to each school
++ majority: flag for majority proficient -- `1` = population is more than 50% proficient, `0` = population is less than 50% proficient
++ category: flag for proficiency category -- `0` = 0% proficient, `1` = between 0 and 50% proficient, `2` = more than 50% proficient
 
 3. [`usState.json`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/usState.json)
 
