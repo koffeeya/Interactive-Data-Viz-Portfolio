@@ -343,6 +343,42 @@ button:disabled {
     padding: 0% 0% 5% 0%;
 }
 
+.chart2-topline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin: 0% 1% 5% 0%
+}
+
+#math-above-text, #math-below-text, #ela-above-text,  
+#ela-below-text {
+    font-size: 11px;
+    font-family: 'IBM Plex Sans';
+    color: rgb(136, 134, 134);
+}
+
+#math-above-num {
+    font-size: 20px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 900;
+    color: #2E86AB;
+}
+
+#ela-above-num {
+    font-size: 20px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 900;
+    color: #EDAE49;
+}
+
+#math-below-num,  
+#ela-below-num {
+    font-size: 20px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 900;
+    color: grey;
+}
+
 #chart2-tooltip {
     font-family: 'IBM Plex Sans';
     line-height: 16px;

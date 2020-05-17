@@ -36,6 +36,10 @@ class Waffle {
             ela: state.allELA,
             mathMaj: 12,
             elaMaj: 26,
+            mathAbove: 0,
+            mathBelow: 0,
+            elaAbove: 0,
+            elaBelow: 0,
         }
 
         // Chart titles
@@ -43,6 +47,12 @@ class Waffle {
         let rightTitle = d3.select("#chart2-right-title");
         let leftSubtitle = d3.select("#chart2-left-subtitle");
         let rightSubtitle = d3.select("#chart2-right-subtitle");
+
+        // Chart topline numbers
+        let mathAboveNum = d3.select("#math-above-num")
+        let mathBelowNum = d3.select("#math-below-num")
+        let elaAboveNum = d3.select("#ela-above-num")
+        let elaBelowNum = d3.select("#ela-below-num")
 
         // Dropdown Setup
         let selectPopulation = d3
@@ -65,36 +75,60 @@ class Waffle {
                 state.selectedCount = state.allMath.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             } else if (state.selectedPop === "Economic Disadvantaged") {
                 filter.math = state.mathEcon;
                 filter.ela = state.elaEcon;
                 state.selectedCount = state.mathEcon.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             } else if (state.selectedPop === "English Learners") {
                 filter.math = state.mathEng;
                 filter.ela = state.elaEng;
                 state.selectedCount = state.mathEng.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             } else if (state.selectedPop === "Female") {
                 filter.math = state.mathFemale;
                 filter.ela = state.elaFemale;
                 state.selectedCount = state.mathFemale.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             } else if (state.selectedPop === "Male") {
                 filter.math = state.mathMale;
                 filter.ela = state.elaMale;
                 state.selectedCount = state.mathMale.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             } else if (state.selectedPop === "Students with Disabilities") {
                 filter.math = state.mathDis;
                 filter.ela = state.elaDis;
                 state.selectedCount = state.mathDis.length;
                 filter.mathMaj = d3.sum(filter.math, d => d.majority);
                 filter.elaMaj = d3.sum(filter.ela, d => d.majority);
+                filter.mathAbove = d3.sum(filter.math, d => d.NumProf);
+                filter.mathBelow = d3.sum(filter.math, d => d.NumBelow);
+                filter.elaAbove = d3.sum(filter.ela, d => d.NumProf);
+                filter.elaBelow = d3.sum(filter.ela, d => d.NumBelow);
             }
         }
 
@@ -159,6 +193,15 @@ class Waffle {
                 .style("opacity", "1");
         }
 
+       /*  let mathAboveNum = d3.select("#math-above-num")
+        let mathBelowNum = d3.select("#math-below-num")
+        let elaAboveNum = d3.select("#ela-above-num")
+        let elaBelowNum = d3.select("#ela-below-num") */
+
+        // Format numbers with commas (syntax: formatNumber(1000) = 1,000)
+        let formatNumber = d3.format(",")
+
+
         // Draw each waffle, title, and subtitle
         changeTitle(leftTitle, "MATH");
         changeTitle(rightTitle, "READING (ELA)");
@@ -168,7 +211,14 @@ class Waffle {
             createWaffle(waffleRight, "d.School", filter.ela, waffleELAColor);
             // Update subtitles
             changeTitle(leftSubtitle, state.selectedPop + " | " + filter.mathMaj + " out of " + state.selectedCount + " tribal schools had at least half of students in the chosen population test proficient in math.");
+            
             changeTitle(rightSubtitle, state.selectedPop + " | " + filter.elaMaj + " out of " + state.selectedCount + " tribal schools had at least half of students in the chosen population test proficient in reading.");
+
+            changeTitle(mathAboveNum, formatNumber(filter.mathAbove));
+            changeTitle(mathBelowNum, formatNumber(filter.mathBelow));
+            changeTitle(elaAboveNum, formatNumber(filter.elaAbove));
+            changeTitle(elaBelowNum, formatNumber(filter.elaBelow));
+
         }
 
 
