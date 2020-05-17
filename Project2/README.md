@@ -13,7 +13,7 @@ My project explores the state of **Native American tribal schools** -- K-12 scho
 ### Data Sources
 I analyzed multiple data sources for this project.
 
-1. **Tribal schools metadata:** Initial list was taken from the [Bureau of Indian Education website](https://bie.edu/Schools/), with operators and cities added from [Wikipedia](https://en.wikipedia.org/wiki/Bureau_of_Indian_Education), and latitude and longitude collected manually from Google searches.
+1. **Tribal schools metadata:** Initial list was taken from the [Bureau of Indian Education website](https://bie.edu/Schools/), with operators and cities added from [Wikipedia](https://en.wikipedia.org/wiki/Bureau_of_Indian_Education). Addresses added manually from Google searches, and latitude and longitude generated in Google Sheets using [this tutorial from Will Geary](https://willgeary.github.io/data/2016/11/04/Geocoding-with-Google-Sheets.html).
 
 2. **Tribal schools scorecard data:** Math and ELA scorecard results were scraped from individual PDFs on the [Bureau of Indian Education website](https://bie.edu/HowAreWeDoing/2015-2016ReportCards/index.htm). Data limited to the 2015-2016 school year.
 
@@ -21,11 +21,19 @@ I analyzed multiple data sources for this project.
 
 4. **Tribal schools transportation data:** Per day miles data scraped from Appendix 1-19 to 1-25 in the [2019-2020 Bureau of Indian Education Budget Justifications Report](https://bie.edu/cs/groups/xbie/documents/site_assets/idc2-092115.pdf).
 
+5. **US States GEOJSON:** shapefile for US states taken from previous Interactive Data Visualization tutorials.
 
 <br />
 
+### Final Clean Datasets
 
+1. [`schools.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/schools.csv)
 
+2. [`scorecards.csv`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/scorecards.csv)
+
+3. [`usState.json`](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/blob/master/Project2/data/usState.json)
+
+<br />
 
 ## **B. SKETCHES & MOCKUPS**
 
