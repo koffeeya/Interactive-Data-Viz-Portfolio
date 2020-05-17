@@ -1,6 +1,8 @@
 # Project 2: Narrative Visualization
 
-*Why are Native American tribal schools struggling to meet student needs??*
+*Why are Native American tribal schools struggling to meet student needs?*
+
+### [**Final Project**](https://koffeeya.github.io/Interactive-Data-Viz-Portfolio/Project2/index.html)
 
 <br />
 
@@ -27,17 +29,18 @@ I analyzed multiple data sources for this project.
 
 ## **B. SKETCHES & MOCKUPS**
 
-### SKETCHES
+### Sketches
 
-| Image | Image          |
-|--------|----------------|
-| Sketch 1   | ![](Project2/assets/sketch1.jpg) |
-| Sketch 2   | ![](Project2/assets/sketch2.jpg) |
-| Sketch 3   | ![](Project2/assets/sketch3.jpg) |
+| Sketch 1 | Sketch 2         | Sketch 3          |
+|--------|----------------|----------------|
+| ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/sketch1.jpg)   | ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/sketch2.jpg) | ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/sketch3.jpg) |
 
 
+![](Project2/assets/sketch3.jpg)
 
 <br />
+
+### Storyboard
 
 | **Story Points**                                                                       | **Storyboard**                                                                                       |
 |----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -54,22 +57,22 @@ I analyzed multiple data sources for this project.
 
 <br />
 
+### Mockups
+*Note: text not final*
 
+| Title Page Mockup | Story Page Mockup         |
+|--------|----------------|
+| ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/mockup1.png) | ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/mockup2.png)         |
+
+<br />
 
 ## **C. ARCHITECTURAL SCHEMA**
-*In Progress*
 
-<br />
+Files
 
-
-
-## **D. FINAL PROJECT**
-*In Progress*
-
-<br />
-
-
-## **E. SOURCES**
-[Museum of Modern Art's Collection](https://github.com/MuseumofModernArt/collection)
-
-<br />
++ `index.html` : first section as hero, the remaining sections as two columns
++ `style.css` : use flexbox for layout
++ `main.js` : read in and filter data, draw, init, set global state
++ `map.js` : draw map, set transitions for each step
++ `waffle.js` : draw waffle, set event listener on population filters
++ `bar.js` : draw bar charts, set transitions
