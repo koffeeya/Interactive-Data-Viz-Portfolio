@@ -74,6 +74,14 @@ I analyzed multiple data sources for this project.
 
 <br />
 
+### Style Guide
+The colors of the page were inspired by [this image](https://commons.wikimedia.org/wiki/File:Haida_double_thunderbird_1880.jpg) of a **Haida double thunderbird**
+
+![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/styleguide.png)
+
+
+<br />
+
 ## **C. ARCHITECTURAL SCHEMA**
 
 Files
