@@ -105,7 +105,6 @@ function init() {
     draw();
 }
 
-
 /* DRAW */
 function draw() {
     map.draw(state, setGlobalState);

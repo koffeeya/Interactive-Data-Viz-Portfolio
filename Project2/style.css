@@ -123,9 +123,18 @@ button:disabled {
 }
 
 @keyframes arrow-point {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
     0% {
         transform: translateY(0);
     }
@@ -260,7 +269,8 @@ button:disabled {
     padding: 1% 0% 0% 0%;
 }
 
-#chart1-subtitle, #chart1-subtitle-2 {
+#chart1-subtitle,
+#chart1-subtitle-2 {
     text-align: center;
     font-family: 'IBM Plex Sans';
     font-size: 12px;
@@ -276,9 +286,18 @@ button:disabled {
 
 /* CHART 2 */
 
-#point5 {
+#point5, #point6 {
     color: white;
     padding: 30px;
+}
+
+#point6 {
+    margin: 20% 0% 0% 0%;
+}
+
+#chart2-wrapper {
+    position: sticky;
+    top: 20%;
 }
 
 #chart2 {
@@ -287,13 +306,7 @@ button:disabled {
     column-gap: 6%;
     row-gap: 2%;
     padding: 2% 0% 0% 0%;
-    
-}
 
-#chart2-wrapper {
-    position: sticky;
-    top: 0%;
-    padding: 2% 0% 0% 0%;
 }
 
 #chart2-waffles {
@@ -310,10 +323,15 @@ button:disabled {
     font-family: 'IBM Plex Serif';
     font-weight: 900;
     font-size: 12px;
-    margin: 5% 0% 0% 0%;
+    margin: 0% 0% 2% 0%;
+    padding: 4%;
+    position: sticky;
+    top: 10%;
+    background-color: white;
+    z-index: 10000;
 }
 
-#pop-dropdown {
+#pop-dropdown-waffle, #pop-dropdown-bar {
     font-size: 14px;
     font-family: 'IBM Plex Sans';
     font-weight: 900;
@@ -337,7 +355,8 @@ button:disabled {
     font-size: 22px;
 }
 
-#chart2-left-subtitle, #chart2-right-subtitle {
+#chart2-left-subtitle,
+#chart2-right-subtitle {
     text-align: left;
     font-size: 11px;
     padding: 0% 0% 5% 0%;
@@ -350,7 +369,9 @@ button:disabled {
     margin: 0% 1% 5% 0%
 }
 
-#math-above-text, #math-below-text, #ela-above-text,  
+#math-above-text,
+#math-below-text,
+#ela-above-text,
 #ela-below-text {
     font-size: 11px;
     font-family: 'IBM Plex Sans';
@@ -371,7 +392,7 @@ button:disabled {
     color: #EDAE49;
 }
 
-#math-below-num,  
+#math-below-num,
 #ela-below-num {
     font-size: 20px;
     font-family: 'IBM Plex Sans';
@@ -400,25 +421,58 @@ button:disabled {
     padding-bottom: 50%;
 }
 
+
+/* CHART 3 */
+
 #part3-content {
     height: 100vh;
 }
 
 #chart3-title {
-    text-align: left;
-    margin: 0% 0% 0% 5%;
+    text-align: center;
+    margin: 5% 0% 0% 5%;
+}
+
+#chart3-subtitle {
+    font-size: 12px;
+    font-family: 'IBM Plex Sans';
 }
 
 
 #chart3-tooltip {
     position: absolute;
-    top: 100px;
-  right: -400px;
-  width: 200px;
-  height: 150px;
-  padding: 15px;
-    transform: translateY(-200);
+    width: 200px;
+    height: 150px;
+    padding: 15px;
     z-index: 10000;
     background-color: rgb(238, 237, 237);
     font-family: 'IBM Plex Sans';
+}
+
+#chart3-visual-1 {
+    padding: 20px;
+    position: sticky;
+    top: 150%;
+}
+
+
+.national-avg {
+    stroke-width: 3px;
+    stroke: #aaa;
+}
+
+.mean {
+    stroke-width: 3px;
+    stroke: #ff743d;
+}
+
+.avg-subtitle, .national-subtitle {
+    font-size: 15px;
+    font-family: 'IBM Plex Sans';
+    font-weight: bold;
+    text-shadow: 0 0 3px white;
+}
+
+#spacer {
+    padding: 10%;
 }
