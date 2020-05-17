@@ -75,10 +75,12 @@ I analyzed multiple data sources for this project.
 <br />
 
 ### Style Guide
-The colors of the page were inspired by [this image](https://commons.wikimedia.org/wiki/File:Haida_double_thunderbird_1880.jpg) of a **Haida double thunderbird**
 
-![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/styleguide.png)
+I drew inspiration for the color palette of my project from an image of a tattoo (shown left below) in a book on the Haida people of Alaska. I chose two Google Fonts: [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) (for headers and subtitles) and [IBM Plex Serif](https://fonts.google.com/specimen/IBM+Plex+Serif) (for paragraph text).
 
+| Inspiration | Style Guide         |
+|--------|----------------|
+| ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/inspiration.jpg) Haida Double Thunderbird. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Haida_double_thunderbird_1880.jpg)| ![](https://raw.githubusercontent.com/koffeeya/Interactive-Data-Viz-Portfolio/master/Project2/assets/styleguide.png)         |
 
 <br />
 
