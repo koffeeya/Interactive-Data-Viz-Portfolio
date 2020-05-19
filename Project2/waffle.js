@@ -205,18 +205,20 @@ class Waffle {
                 })
 
                 .style("fill", d => colorscale(d.category))
+                .attr("id", function(d, i) {return d.School.replace(/[^A-Z0-9]/ig, "")})
                 .attr("opacity", 0)
                 .on("mouseover", function (d) {
-                    d3.select(this)
+                    d3.selectAll("#" + this.id)
                         .style("opacity", "0.5")
-                        .style("cursor", "pointer")
+                        .style("pointer", "cursor")
 
                     d3.select("#chart2-tooltip")
                         .style("opacity", 1)
                         .html("<b>" + d.School + "</b><br><br><b>" + Math.floor(d.PercentMeet * 100) + "% </b>of students in the selected population <b>(" + d.Population + ")</b> are proficient in <b>" + d.Subject + "</b><br><br><p id='tooltip-small'>Located in " + d.City + ", " + d.State + " | " + d.N + " students tested (" + Math.floor(d.ParticipationRate * 100) + "% of population)</p>")
                 })
                 .on("mouseout", function (d) {
-                    d3.select(this)
+                    d3.selectAll("#" + this.id)
+                        .style("opacity", "0.5")
                         .transition()
                         .duration(100)
                         .style("opacity", "1")

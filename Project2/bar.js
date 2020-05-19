@@ -149,12 +149,13 @@ class Bar {
                 .attr("height", d => yScale(d.BusDistance))
                 .style("fill", d => colorscale(d.category))
                 .attr("opacity", 0)
+                .attr("id", function(d, i) {return d.School.replace(/[^A-Z0-9]/ig, "")})
                 .on("mouseover", function (d) {
-                    d3.select(this)
+                    d3.selectAll("#" + this.id)
                         .style("opacity", "0.5")
                 })
                 .on("mouseout", function (d) {
-                    d3.select(this)
+                    d3.selectAll("#" + this.id)
                         .transition(d3.easeElastic)
                         .duration(50)
                         .style("opacity", "1")
