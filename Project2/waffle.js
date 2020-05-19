@@ -1,7 +1,6 @@
 class Waffle {
 
     constructor(state, setGlobalState) {
-        let canvasWidth, canvasHeight;
 
         this.canvasWidth = state.width / 2.1
         this.canvasHeight = state.height * 0.5
@@ -24,7 +23,8 @@ class Waffle {
             elaAbove: 0,
             elaBelow: 0,
         }
-/* 
+
+        /* 
         // Dimensions of the SVG canvas
         let canvasWidth = state.width / 2.1
         let canvasHeight = state.height * 0.5 */
@@ -35,8 +35,8 @@ class Waffle {
         let numRows = Math.floor(numItems / numCols) + 1 // to cover overflow
 
         // Dimensions of each waffle column and waffle row
-        let waffleWidth = canvasWidth / numCols
-        let waffleHeight = canvasHeight / numRows
+        let waffleWidth = this.canvasWidth / numCols
+        let waffleHeight = this.canvasHeight / numRows
 
         // Color scales
         let waffleMathColor = d3.scaleOrdinal().domain([0, 1, 2]).range(["grey", "#cccccc", "#2E86AB"]);
@@ -87,6 +87,9 @@ class Waffle {
 
 
         /* CHART CREATION FUNCTIONS */
+
+        // Format numbers with commas (syntax: formatNumber(1000) = 1,000)
+        let formatNumber = d3.format(",")
 
         // Set waffle state based on chosen population
         function chooseWaffleDataset() {
@@ -251,10 +254,6 @@ class Waffle {
         }
 
 
-        // Format numbers with commas (syntax: formatNumber(1000) = 1,000)
-        let formatNumber = d3.format(",")
-
-
         // Draw each title and subtitle
         changeTitle(leftTitle, "MATH");
         changeTitle(rightTitle, "READING (ELA)");
@@ -291,6 +290,7 @@ class Waffle {
                 drawWaffles();
             })
 
+    
     }
 }
 

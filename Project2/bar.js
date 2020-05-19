@@ -46,6 +46,13 @@ class Bar {
 
         let chart3Text = d3.select("#chart3-tooltip-1")
 
+
+        /* CHART FUNCTIONS */
+
+        // Format numbers with commas (syntax: formatNumber(1000) = 1,000)
+        let formatNumber = d3.format(",")
+
+        // Update the bar chart state
         function chooseBarDataset() {
             // All students
             if (barState.selectedPop === "All Students") {
@@ -98,8 +105,8 @@ class Bar {
             }
         }
 
-
-        function createBar(canvas, data, xLabel, titleID, newTitle, subtitleID, newSubtitle, colorscale, ) {
+        // Create the bar chart
+        function createBar(canvas, data, titleID, newTitle, subtitleID, newSubtitle, colorscale, ) {
             canvas.selectAll("rect")
                 .remove();
 
@@ -278,9 +285,7 @@ class Bar {
 
         }
 
-
-        
-
+        // Draw the bar chart
         function drawBars() {
             createBar(svgMath, barState.math, "Average Daily Bus Distance", "#chart3-title", "How far does a school bus have to travel per day to get students to school?", "#chart3-subtitle", "Each bar represents one school, colored by % proficiency in math or reading. Blue or yellow = more than 50% of the population was proficient in the subject. Dark Gray = 0% proficiency.", waffleMathColor);
         }
