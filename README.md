@@ -16,3 +16,7 @@ How does the dominant color of an artist’s works change over time?
 Why are tribal schools struggling to meet student needs?
 
 [Project Plan](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/tree/master/Project2)
+
+<br />
+
+### [Final Reflection](https://docs.google.com/document/d/19_74pO4f3BGfySk4lpw0R3mUyTJiCK0Sta5WQMQ3yBQ/edit?usp=sharing)
