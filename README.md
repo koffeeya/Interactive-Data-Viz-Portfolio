@@ -1,6 +1,8 @@
 # Interactive Data Visualization: Final Portfolio
 Final portfolio for Interactive Data Visualization (DATA 73200) course taken at the CUNY Graduate Center in Spring 2020
 
+<br />
+
 -----------
 
 <br />
@@ -13,6 +15,8 @@ How does the dominant color of an artist’s works change over time?
 
 [Project Plan](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/tree/master/Project1)
 
+<br />
+
 -----------
 
 <br />
@@ -24,6 +28,8 @@ How does the dominant color of an artist’s works change over time?
 Why are tribal schools struggling to meet student needs?
 
 [Project Plan](https://github.com/koffeeya/Interactive-Data-Viz-Portfolio/tree/master/Project2)
+
+<br />
 
 -----------
 
