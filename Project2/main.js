@@ -25,6 +25,7 @@ let state = {
     pathUSA: null,
     height: 300,
     width: 300,
+    colorState: "Math",
     // Math scorecard populations
     allMath: [],
     mathMale: [],

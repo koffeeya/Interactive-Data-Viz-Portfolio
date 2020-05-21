@@ -3,7 +3,7 @@ class Waffle {
     constructor(state, setGlobalState) {
 
         this.canvasWidth = state.width / 2.1
-        this.canvasHeight = state.height * 0.5
+        this.canvasHeight = state.height * 0.3
 
 
     }
@@ -218,7 +218,6 @@ class Waffle {
                 .on("mouseover", function (d) {
                     d3.selectAll("#" + this.id)
                         .style("opacity", "0.5")
-                        .style("pointer", "cursor")
 
                     d3.select("#chart2-tooltip")
                         .style("opacity", 1)
@@ -226,10 +225,9 @@ class Waffle {
                 })
                 .on("mouseout", function (d) {
                     d3.selectAll("#" + this.id)
-                        .style("opacity", "0.5")
-                        .transition()
-                        .duration(100)
-                        .style("opacity", "1")
+                    .transition(d3.easeElastic)
+                    .duration(50)
+                    .style("opacity", "1")
 
                     d3.select("#chart2-tooltip")
                         .style("opacity", "0")

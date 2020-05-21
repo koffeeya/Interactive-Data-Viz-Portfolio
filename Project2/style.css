@@ -473,6 +473,7 @@ button:disabled {
     text-shadow: 0 0 3px white;
 }
 
-/* #spacer {
-    padding: 10%;
-} */
+.axis {
+    color: grey;
+    font-family: 'IBM Plex Serif';
+}
