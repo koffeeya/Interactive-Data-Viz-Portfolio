@@ -42,6 +42,7 @@ let state = {
     elaDis: [],
     //
     selectedPop: "All Students",
+    barPopulation: "All Students",
     selectedCount: 137,
     //
     intro: 0,
@@ -68,7 +69,7 @@ Promise.all([
 
 // Create scales and filtered datasets
 function setScales() {
-    state.projectionUSA = d3.geoAlbersUsa().fitSize([state.width, state.height], state.geoUSA);
+    state.projectionUSA = d3.geoAlbersUsa().fitSize([600, 200], state.geoUSA);
     state.pathUSA = d3.geoPath().projection(state.projectionUSA);
     state.schoolsList = d3.map(state.dataSchools, d => d.School).keys();
     state.operatorList = d3.map(state.dataSchools, d => d.Operator).keys();
@@ -111,6 +112,23 @@ function draw() {
     map.draw(state, setGlobalState);
     waffle.draw(state, setGlobalState);
     bar.draw(state, setGlobalState);
+
+    let selectPopulation = d3
+            .selectAll("#pop-dropdown-bar")
+
+        selectPopulation
+            .selectAll("option")
+            .data(state.populationList)
+            .join("option")
+            .attr("value", (d) => d)
+            .text((d) => d)
+
+        selectPopulation = d3
+        .select("#pop-dropdown-bar")
+            .on("change", function () {
+                state.selectedPop = this.value;
+                bar.draw(state, setGlobalState);
+            });
 }
 
 
@@ -123,10 +141,10 @@ function setGlobalState(nextState) {
 }
 
 function findWidth() {
-    let element = document.querySelector("chart")
+    let element = document.querySelector("#title-wrapper")
     let rect = element.getBoundingClientRect();
     setGlobalState({
-        width: Math.floor(rect.width * 0.9),
-        height: Math.floor(rect.height / 5),
+        width: Math.floor(rect.width),
+        height: Math.floor(rect.height),
     });
 }

@@ -2,9 +2,8 @@ class Waffle {
 
     constructor(state, setGlobalState) {
 
-        this.canvasWidth = state.width / 2.1
-        this.canvasHeight = state.height * 0.3
-
+        this.canvasWidth = 600
+        this.canvasHeight = 600
 
     }
 
@@ -24,11 +23,6 @@ class Waffle {
             elaBelow: 0,
         }
 
-        /* 
-        // Dimensions of the SVG canvas
-        let canvasWidth = state.width / 2.1
-        let canvasHeight = state.height * 0.5 */
-
         // Number of items in each waffle, and the cols and rows
         let numItems = state.allMath.length
         let numCols = 7
@@ -42,6 +36,8 @@ class Waffle {
         let waffleMathColor = d3.scaleOrdinal().domain([0, 1, 2]).range(["grey", "#cccccc", "#2E86AB"]);
         let waffleELAColor = d3.scaleOrdinal().domain([0, 1, 2]).range(["grey", "#cccccc", "#EDAE49"]);
 
+        console.log(this.canvasWidth)
+
 
 
         /* SELECTIONS & SETUP */
@@ -50,17 +46,17 @@ class Waffle {
         let waffleLeft = d3
             .select("#chart2-left")
             .append("svg")
-            .attr("width", this.canvasWidth)
-            .attr("height", this.canvasHeight)
-            .append("g");
+            .attr("viewBox", "0 0 700 700")
+            .append("g")
+            .attr("transform", "translate(0,0)");
 
         // Set up ELA SVG canvas
         let waffleRight = d3
             .select("#chart2-right")
             .append("svg")
-            .attr("width", this.canvasWidth)
-            .attr("height", this.canvasHeight)
-            .append("g");
+            .attr("viewBox", "0 0 700 700")
+            .append("g")
+            .attr("transform", "translate(0,0)");
 
         // Chart titles
         let leftTitle = d3.select("#chart2-left-title");
@@ -218,10 +214,20 @@ class Waffle {
                 .on("mouseover", function (d) {
                     d3.selectAll("#" + this.id)
                         .style("opacity", "0.5")
+                        .style("cursor", "pointer")
 
-                    d3.select("#chart2-tooltip")
-                        .style("opacity", 1)
-                        .html("<b>" + d.School + "</b><br><br><b>" + Math.floor(d.PercentMeet * 100) + "% </b>of students in the selected population <b>(" + d.Population + ")</b> are proficient in <b>" + d.Subject + "</b><br><br><p id='tooltip-small'>Located in " + d.City + ", " + d.State + " | " + d.N + " students tested (" + Math.floor(d.ParticipationRate * 100) + "% of population)</p>")
+                    // tooltip
+                d3.select('body')
+                    .append('div')
+                    .attr('class', 'waffle-tooltip')
+                    .attr('style', 'position: absolute;')
+                    .style('left', (d3.event.pageX + 10) + 'px')
+                    .style('top', d3.event.pageY + 'px')
+                    .html("<b style='font-size: 18px;'>" + d.School + "</b><br>" + d.City + ", " + d.State + "<br><br><b style='font-size: 18px; color: white;'>" + Math.floor(d.PercentMeet * 100) + "%</b><b> of the chosen population in this school (" + state.selectedPop + ") is proficient in " + d.Subject + "</b>")
+                    .style("opacity", 0)
+                    .transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
                 })
                 .on("mouseout", function (d) {
                     d3.selectAll("#" + this.id)
@@ -229,8 +235,8 @@ class Waffle {
                     .duration(50)
                     .style("opacity", "1")
 
-                    d3.select("#chart2-tooltip")
-                        .style("opacity", "0")
+                    d3.selectAll(".waffle-tooltip")
+                            .remove();
                 })
                 .transition()
                 .delay(d => d.Index)
@@ -277,7 +283,6 @@ class Waffle {
         // Call functions for inital setup
         chooseWaffleDataset();
         drawWaffles();
-
 
        /* EVENT LISTENER ON POPULATION DROPDOWN */
         selectPopulation = d3

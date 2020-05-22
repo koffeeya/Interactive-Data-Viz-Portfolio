@@ -10,13 +10,24 @@ class Map {
         let incomeScale = d3.scaleOrdinal().domain(["above", "below"]).range(["#9a3106", "#b5e5f9"]);
 
         let subtitle = d3.select("#chart1-subtitle");
-        let subtitle2 = d3.select("#chart1-subtitle-2")
+        let subtitle2 = d3
+            .select("#chart1-subtitle-2")
+            .style("transform", "translateY(-20px)")
+
+        this.margin = {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+        };
 
         let svg = d3
             .select("#chart1-visual")
             .append("svg")
-            .attr("width", state.width)
-            .attr("height", state.height);
+            /*.attr("preserveAspectRatio", "xMinYMin meet") */
+            .attr("viewBox", "0 0 600 200")
+            .append("g")
+            .attr("transform", "translate(0,0)");
 
         // Title of chart
         let title = d3
@@ -56,7 +67,7 @@ class Map {
                     .append("circle")
                     .attr("class", "dot")
                     .attr("opacity", 0)
-                    .attr("r", "5")
+                    .attr("r", "3")
                     .attr("style", "stroke: white; stroke-width: 0.75px")
                     .attr("fill", "#aaa")
                     .attr("transform", d => {
@@ -66,29 +77,34 @@ class Map {
                     .on('mouseover', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "8")
+                            .attr("style", "stroke: #ff743d; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "pointer");
+
                         // tooltip
-                        d3.select("#chart1-tooltip")
+                        d3.select('body')
+                            .append('div')
+                            .attr('class', 'map-tooltip')
+                            .attr('style', 'position: absolute;')
+                            .style('left', (d3.event.pageX + 10) + 'px')
+                            .style('top', d3.event.pageY + 'px')
+                            .html("<b>" + d.School + "</b><br>" + d.City + ", " + d.State)
                             .style("opacity", 0)
                             .transition()
                             .duration(200)
-                            .text(d.School + " " + " | " + d.City + ", " + d.State)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
+
                     })
                     .on('mouseout', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "4")
+                            .attr("style", "stroke: white; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "default")
+
                         // tooltip
-                        d3.select("#chart1-tooltip")
-                            .style("opacity", 1)
-                            .transition()
-                            .duration(50)
-                            .style("opacity", 0);
+                        d3.selectAll(".map-tooltip")
+                            .remove();
                     }),
                     update => update,
                     exit => exit
@@ -106,7 +122,7 @@ class Map {
             .setup({
                 step: ".part1",
                 debug: false,
-                offset: 0.4,
+                offset: 0.8,
             })
             .onStepEnter(handleStepEnter)
 
@@ -203,29 +219,31 @@ class Map {
                     .on('mouseover', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "8")
+                        .attr("style", "stroke: #ff743d; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "pointer");
                         // tooltip
-                        d3.select("#chart1-tooltip")
+                        d3.select('body')
+                            .append('div')
+                            .attr('class', 'map-tooltip')
+                            .attr('style', 'position: absolute;')
+                            .style('left', (d3.event.pageX + 10) + 'px')
+                            .style('top', d3.event.pageY + 'px')
+                            .html("<b>" + d.School + "</b><br>" + d.City + ", " + d.State + "<br><br>$" + formatNumber(d.Income) + " per capita income in " + d.County + " county")
                             .style("opacity", 0)
                             .transition()
                             .duration(200)
-                            .text(d.School + " " + " | " + d.City + ", " + d.State + " | $" + formatNumber(d.Income) + " per capita income for " + d.County + " county")
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                     })
                     .on('mouseout', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "5")
+                        .attr("style", "stroke: white; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "default")
                         // tooltip
-                        d3.select("#chart1-tooltip")
-                            .style("opacity", 1)
-                            .transition()
-                            .duration(50)
-                            .style("opacity", 0);
+                        d3.selectAll(".map-tooltip")
+                            .remove();
                     })
                     .call(selection =>
                         selection
@@ -306,29 +324,32 @@ class Map {
                     .on('mouseover', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "8")
+                        .attr("style", "stroke: #ff743d; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "pointer");
                         // tooltip
-                        d3.select("#chart1-tooltip")
+                        
+                        d3.select('body')
+                            .append('div')
+                            .attr('class', 'map-tooltip')
+                            .attr('style', 'position: absolute;')
+                            .style('left', (d3.event.pageX + 10) + 'px')
+                            .style('top', d3.event.pageY + 'px')
+                            .html("<b>" + d.School + "</b><br>" + d.City + ", " + d.State)
                             .style("opacity", 0)
                             .transition()
                             .duration(200)
-                            .text(d.School + " " + " | " + d.City + ", " + d.State)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                     })
                     .on('mouseout', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "5")
+                        .attr("style", "stroke: white; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "default")
                         // tooltip
-                        d3.select("#chart1-tooltip")
-                            .style("opacity", 1)
-                            .transition()
-                            .duration(50)
-                            .style("opacity", 0);
+                        d3.selectAll(".map-tooltip")
+                            .remove();
                     })
                     .call(selection =>
                         selection
@@ -349,7 +370,7 @@ class Map {
                 subtitle
                     .style("display", "visible");
 
-                    subtitle2
+                subtitle2
                     .style("opacity", "0")
                     .transition(d3.easeElastic)
                     .duration(300)
@@ -360,29 +381,31 @@ class Map {
                     .on('mouseover', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "8")
+                        .attr("style", "stroke: #ff743d; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "pointer");
                         // tooltip
-                        d3.select("#chart1-tooltip")
+                        d3.select('body')
+                            .append('div')
+                            .attr('class', 'map-tooltip')
+                            .attr('style', 'position: absolute;')
+                            .style('left', (d3.event.pageX + 10) + 'px')
+                            .style('top', d3.event.pageY + 'px')
+                            .html("<b>" + d.School + "</b><br>" + d.City + ", " + d.State + "<br><br>$" + formatNumber(d.Income) + " per capita income in " + d.County + " county")
                             .style("opacity", 0)
                             .transition()
                             .duration(200)
-                            .text(d.School + " " + " | " + d.City + ", " + d.State + " | $" + formatNumber(d.Income) + " per capita income for " + d.County + " county")
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                     })
                     .on('mouseout', function (d) {
                         // dot
                         d3.select(this)
-                            .attr("r", "5")
+                        .attr("style", "stroke: white; stroke-width: 0.75px")
                             .attr("opacity", 1)
                             .attr("cursor", "default")
                         // tooltip
-                        d3.select("#chart1-tooltip")
-                            .style("opacity", 1)
-                            .transition()
-                            .duration(50)
-                            .style("opacity", 0);
+                        d3.selectAll(".map-tooltip")
+                            .remove();
                     })
                     .call(selection =>
                         selection
