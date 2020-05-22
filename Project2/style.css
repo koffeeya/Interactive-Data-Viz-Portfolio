@@ -443,7 +443,7 @@ button:disabled {
 }
 
 .avg-subtitle, .national-subtitle {
-    font-size: 15px;
+    font-size: 10px;
     font-family: 'IBM Plex Sans';
     font-weight: bold;
     text-shadow: 0 0 3px white;
